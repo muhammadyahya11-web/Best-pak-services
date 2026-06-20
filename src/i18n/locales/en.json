@@ -1,0 +1,146 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "packages": "Packages",
+    "contact": "Contact"
+  },
+  "home": {
+    "heroTitle": "DISCOVER THE WORLD WITH MILLENNIUM TRAVEL'S UNMATCHED EXPERTISE",
+    "featuresTitle": "Discover Why We're The Best Travel Agency",
+    "features": {
+      "customizedPolicy": "Customized Policy",
+      "customizedPolicyDesc": "Tailored corporate travel policies that align with your organization's needs and budget.",
+      "support247": "24/7 Support",
+      "support247Desc": "Round-the-clock assistance for all your travel needs, anywhere in the world.",
+      "reporting": "Reporting",
+      "reportingDesc": "Detailed analytics and reports to track spending and optimize travel expenses.",
+      "dutyOfCare": "Duty Of Care",
+      "dutyOfCareDesc": "Comprehensive duty of care programs ensuring traveler safety and well-being.",
+      "globalNetwork": "Global Network",
+      "globalNetworkDesc": "Extensive worldwide partnerships ensuring seamless travel across borders.",
+      "innovation": "Innovation",
+      "innovationDesc": "Cutting-edge technology solutions that streamline the entire travel experience."
+    },
+    "servicesTitle": "Tailored Travel Solutions",
+    "services": {
+      "airCharter": "Air Charter",
+      "flights": "Flights",
+      "visaServices": "Visa Services",
+      "meetAssist": "Meet & Assist",
+      "hotels": "Hotels",
+      "tours": "Tours",
+      "inboundTour": "Inbound Tour",
+      "drivingPermit": "Driving Permit"
+    },
+    "commitmentTitle": "Our Commitment To Excellence",
+    "commitmentDesc": "We provide exceptional travel services, personalized support and innovative solutions. Our team is dedicated to making every journey seamless and memorable, combining industry expertise with genuine care for our clients' experience.",
+    "testimonialsTitle": "What Our Clients Say",
+    "testimonialsSubtitle": "Testimonials",
+    "stats": {
+      "yearsExperience": "Years Experience",
+      "happyTravelers": "Happy Travelers",
+      "destinations": "Destinations",
+      "clientRating": "Client Rating"
+    },
+    "ctaTitle": "Need Help Planning Your Journey?",
+    "ctaDesc": "Our experts are ready to guide you with personalized solutions and professional support tailored just for you.",
+    "ctaButton": "CONTACT US",
+    "footer": {
+      "brandDesc": "Your trusted partner for corporate and luxury travel. Delivering excellence in every journey since 2005.",
+      "explore": "Explore",
+      "contact": "Contact"
+    }
+  },
+  "about": {
+    "ratingText": "Trusted by 10,000+ clients",
+    "title": "Corporate Travel Made Easy",
+    "description": "As an IATA-recognized & ISO 9001:2015 certified travel management company, we leverage global partnerships, expert teams, and cutting-edge technology to deliver customized corporate travel solutions that save time and cost. Millennium Travel, recognized as one of the leading travel agencies in Qatar, serves government organizations, oil & gas companies, educational institutions, hotels, and global corporations with tailored travel programs designed for efficiency, compliance, and savings.",
+    "button": "Learn More"
+  },
+  "services": {
+    "title": "Professional Travel Services",
+    "subtitle": "We offer a comprehensive range of travel services to meet all your needs",
+    "airCharterTitle": "Air Charter",
+    "airCharterDesc": "Private and charter flight services tailored to your schedule and preferences.",
+    "flightsTitle": "Flights",
+    "flightsDesc": "Domestic and international flight bookings at competitive rates with all major airlines.",
+    "visaServicesTitle": "Visa Services",
+    "visaServicesDesc": "Complete visa processing and assistance for destinations worldwide.",
+    "meetAssistTitle": "Meet & Assist",
+    "meetAssistDesc": "VIP airport meet and greet services for a seamless travel experience.",
+    "hotelsTitle": "Hotels",
+    "hotelsDesc": "Premium hotel reservations from luxury resorts to business accommodations.",
+    "toursTitle": "Tours",
+    "toursDesc": "Curated tour packages to exotic destinations around the world.",
+    "inboundTourTitle": "Inbound Tour",
+    "inboundTourDesc": "Custom inbound tourism packages for visitors to Qatar and the region.",
+    "drivingPermitTitle": "Driving Permit",
+    "drivingPermitDesc": "International driving permit services for hassle-free travel abroad."
+  },
+  "packages": {
+    "title": "Exclusive Travel Packages",
+    "subtitle": "Handpicked packages designed for unforgettable experiences",
+    "viewDetails": "View Details",
+    "popular": "Popular",
+    "startingFrom": "Starting from",
+    "duration": "Duration",
+    "includes": "Package includes",
+    "bookNow": "Book Now",
+    "days": "days",
+    "businessPackage": {
+      "name": "Business Essentials",
+      "desc": "Perfect for corporate travelers seeking efficiency and comfort.",
+      "price": "2,500",
+      "duration": "7",
+      "includes": ["Return flights", "5-star hotel", "Airport transfers", "Daily breakfast", "Meeting room access"]
+    },
+    "luxuryPackage": {
+      "name": "Luxury Escape",
+      "desc": "Indulge in the finest experiences with our premium travel package.",
+      "price": "8,900",
+      "duration": "10",
+      "includes": ["Business class flights", "Luxury resort stay", "Private transfers", "All meals included", "Spa & wellness", "Personal concierge"]
+    },
+    "adventurePackage": {
+      "name": "Adventure Explorer",
+      "desc": "Thrilling adventures and breathtaking destinations await.",
+      "price": "4,200",
+      "duration": "14",
+      "includes": ["Round-trip flights", "Boutique hotels", "Guided tours", "Adventure activities", "Travel insurance", "Local transportation"]
+    },
+    "familyPackage": {
+      "name": "Family Getaway",
+      "desc": "Create lasting memories with our family-friendly travel packages.",
+      "price": "5,500",
+      "duration": "8",
+      "includes": ["Round-trip flights", "Family hotel suite", "Theme park tickets", "Kids club access", "All meals", "Travel insurance"]
+    }
+  },
+  "contact": {
+    "heroTag": "Contact",
+    "heroTitle": "Plan your next journey with us",
+    "heroDesc": "Reach out for corporate travel, tour packages, flights, hotels, visas, and complete travel support.",
+    "getInTouch": "Get in touch",
+    "getInTouchDesc": "Share your travel requirements and our team will help you with a smooth, reliable travel plan.",
+    "phone": "Phone",
+    "email": "Email",
+    "address": "Address",
+    "addressValue": "Alfardan Centre, Doha, Qatar",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "travelRequirement": "Travel requirement",
+      "message": "Message",
+      "sendMessage": "Send Message",
+      "requirements": {
+        "corporate": "Corporate travel",
+        "flights": "Flight booking",
+        "hotels": "Hotel booking",
+        "tours": "Tour package",
+        "visa": "Visa service"
+      }
+    }
+  }
+}
