@@ -62,12 +62,32 @@
   "services": {
     "title": "خدمات سفر احترافية",
     "subtitle": "نقدم مجموعة شاملة من خدمات السفر لتلبية جميع احتياجاتك",
+    "visaSectionTitle": "الخدمات السياحية وتأشيرات الزيارة",
+    "visaSectionDesc": "نقدم خدمات سياحية كاملة للدول التالية تشمل معالجة التأشيرات وتذاكر الطيران والنقل والفنادق والفعاليات السياحية",
+    "countries": {
+      "thailand": "تايلاند",
+      "malaysia": "ماليزيا",
+      "singapore": "سنغافورة",
+      "azerbaijan": "أذربيجان",
+      "dubai": "دبي (الإمارات)",
+      "uzbekistan": "أوزبكستان",
+      "turkey": "تركيا",
+      "indonesia": "إندونيسيا",
+      "nepal": "نيبال",
+      "china": "الصين",
+      "kazakhstan": "كازاخستان",
+      "japan": "اليابان",
+      "kyrgyzstan": "قيرغيزستان",
+      "southAfrica": "جنوب أفريقيا",
+      "schengen": "جميع دول شينغن"
+    },
     "airCharterTitle": "طيران خاص",
     "airCharterDesc": "خدمات طيران خاصة ومصممة حسب جدولك وتفضيلاتك.",
     "flightsTitle": "رحلات جوية",
     "flightsDesc": "حجوزات رحلات داخلية ودولية بأسعار تنافسية مع جميع خطوط الطيران الرئيسية.",
     "visaServicesTitle": "خدمات التأشيرات",
     "visaServicesDesc": "معالجة كاملة للتأشيرات ومساعدة لوجهات حول العالم.",
+    "visaPlusPackage": "تأشيرة + تذكرة طيران + فندق + نقل + فعاليات",
     "meetAssistTitle": "الاستقبال والتسهيلات",
     "meetAssistDesc": "خدمات استقبال VIP في المطار لتجربة سفر سلسة.",
     "hotelsTitle": "الفنادق",
@@ -139,8 +159,59 @@
         "flights": "حجز رحلة",
         "hotels": "حجز فندق",
         "tours": "باقة جولات",
-        "visa": "خدمة تأشيرة"
-      }
+      "visa": "خدمة تأشيرة"
+    }
+  },
+  "bps": {
+    "navLabel": "BPS - وظائف في الخارج",
+    "tagline": "بناء الأشخاص، تشكيل المستقبل",
+    "heroTitle": "فرص عمل في لوكسمبورغ (أوروبا)",
+    "heroDesc": "ابنِ حياتك المهنية في واحدة من أغنى economies وأكثرها استقرارًا في أوروبا مع تصاريح عمل قانونية.",
+    "sectorsTitle": "القطاعات المتاحة",
+    "sectors": {
+      "warehouse": "المخازن والخدمات اللوجستية",
+      "construction": "البناء",
+      "hospitality": "الضيافة والفنادق",
+      "cleaning": "التنظيف والمرافق",
+      "supermarkets": "المتاجر الكبرى"
+    },
+    "advantagesTitle": "المزايا الرئيسية",
+    "advantages": {
+      "highSalary": "دولة ذات رواتب عالية في أوروبا",
+      "fastGrowing": "سوق عمل سريع النمو",
+      "multinational": "بيئة عمل متعددة الجنسيات",
+      "workerProtection": "قوانين حماية عمال قوية"
+    },
+    "salaryTitle": "هيكل الرواتب",
+    "salaryLevels": {
+      "entry": "مستوى مبتدئ",
+      "semiSkilled": "شبه ماهر",
+      "skilled": "ماهر"
+    },
+    "salaryRanges": {
+      "entry": "€1500 - €2200",
+      "semiSkilled": "€2200 - €3000",
+      "skilled": "€3000 - €4000+"
+    },
+    "benefitsTitle": "المزايا والدعم",
+    "benefits": {
+      "accommodation": "دعم السكن",
+      "transport": "المساعدة في المواصلات",
+      "healthInsurance": "تأمين صحي",
+      "paidLeave": "إجازة مدفوعة ووقت إضافي"
+    },
+    "processingTitle": "وقت المعالجة",
+    "processingTime": "4-5 أشهر",
+    "costTitle": "التكلفة الإجمالية للخدمة",
+    "cost": "10,000 ريال قطري",
+    "paymentTitle": "خطة السداد",
+    "paymentPlan": "4 أقساط",
+    "ctaText": "تواصل مع BPS للتسجيل والمزيد من التفاصيل.",
+    "ctaButton": "سجل الآن",
+    "features": {
+      "title": "لماذا تختار BPS",
+      "subtitle": "نقدم دعماً شاملاً لرحلتك المهنية في الخارج"
     }
   }
+}
 }

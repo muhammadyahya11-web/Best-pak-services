@@ -62,12 +62,34 @@
   "services": {
     "title": "Professional Travel Services",
     "subtitle": "We offer a comprehensive range of travel services to meet all your needs",
+    "visaSectionTitle": "Tourist Services & Visit Visas",
+    "visaSectionDesc": "We provide complete tourist services for the following countries including visa processing, air tickets, transport, hotels, and tourist events",
+    "visaServicesTitle": "Visa Services",
+    "visaServicesDesc": "Complete visa processing and assistance for destinations worldwide.",
+    "countries": {
+      "thailand": "Thailand",
+      "malaysia": "Malaysia",
+      "singapore": "Singapore",
+      "azerbaijan": "Azerbaijan",
+      "dubai": "Dubai (UAE)",
+      "uzbekistan": "Uzbekistan",
+      "turkey": "Turkey",
+      "indonesia": "Indonesia",
+      "nepal": "Nepal",
+      "china": "China",
+      "kazakhstan": "Kazakhstan",
+      "japan": "Japan",
+      "kyrgyzstan": "Kyrgyzstan",
+      "southAfrica": "South Africa",
+      "schengen": "All Schengen Countries"
+    },
     "airCharterTitle": "Air Charter",
     "airCharterDesc": "Private and charter flight services tailored to your schedule and preferences.",
     "flightsTitle": "Flights",
     "flightsDesc": "Domestic and international flight bookings at competitive rates with all major airlines.",
     "visaServicesTitle": "Visa Services",
     "visaServicesDesc": "Complete visa processing and assistance for destinations worldwide.",
+    "visaPlusPackage": "Visa + Air Ticket + Hotel + Transport + Events",
     "meetAssistTitle": "Meet & Assist",
     "meetAssistDesc": "VIP airport meet and greet services for a seamless travel experience.",
     "hotelsTitle": "Hotels",
@@ -141,6 +163,57 @@
         "tours": "Tour package",
         "visa": "Visa service"
       }
+    }
+  },
+  "bps": {
+    "navLabel": "BPS - Overseas Jobs",
+    "tagline": "Building People, Shaping Futures",
+    "heroTitle": "Work Opportunities in Luxembourg (Europe)",
+    "heroDesc": "Build your career in one of Europe's richest and most stable economies with legal work permits.",
+    "sectorsTitle": "Available Sectors",
+    "sectors": {
+      "warehouse": "Warehouse & Logistics",
+      "construction": "Construction",
+      "hospitality": "Hospitality",
+      "cleaning": "Cleaning & Facility Services",
+      "supermarkets": "Supermarkets"
+    },
+    "advantagesTitle": "Key Advantages",
+    "advantages": {
+      "highSalary": "High salary country in Europe",
+      "fastGrowing": "Fast-growing job market",
+      "multinational": "Multinational work environment",
+      "workerProtection": "Strong worker protection laws"
+    },
+    "salaryTitle": "Salary Structure",
+    "salaryLevels": {
+      "entry": "Entry Level",
+      "semiSkilled": "Semi-Skilled",
+      "skilled": "Skilled"
+    },
+    "salaryRanges": {
+      "entry": "€1500 - €2200",
+      "semiSkilled": "€2200 - €3000",
+      "skilled": "€3000 - €4000+"
+    },
+    "benefitsTitle": "Benefits & Support",
+    "benefits": {
+      "accommodation": "Accommodation Support",
+      "transport": "Transportation Assistance",
+      "healthInsurance": "Health Insurance",
+      "paidLeave": "Paid Leave & Overtime"
+    },
+    "processingTitle": "Processing Time",
+    "processingTime": "4-5 Months",
+    "costTitle": "Total Service Cost",
+    "cost": "10,000 QAR",
+    "paymentTitle": "Payment Plan",
+    "paymentPlan": "4 Installments",
+    "ctaText": "Contact BPS for registration and more details.",
+    "ctaButton": "Register Now",
+    "features": {
+      "title": "Why Choose BPS",
+      "subtitle": "We provide end-to-end support for your overseas career journey"
     }
   }
 }

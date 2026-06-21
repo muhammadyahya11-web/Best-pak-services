@@ -1,6 +1,84 @@
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 
+const visaCountries = [
+  {
+    key: "thailand",
+    image: "https://images.unsplash.com/photo-1508009603885-50cf7c579365?w=400",
+    alt: "Bangkok, Thailand",
+  },
+  {
+    key: "malaysia",
+    image: "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=400",
+    alt: "Kuala Lumpur, Malaysia",
+  },
+  {
+    key: "singapore",
+    image: "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=400",
+    alt: "Singapore",
+  },
+  {
+    key: "azerbaijan",
+    image: "https://images.unsplash.com/photo-1609921212029-bb5a28e60960?w=400",
+    alt: "Baku, Azerbaijan",
+  },
+  {
+    key: "dubai",
+    image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=400",
+    alt: "Dubai, UAE",
+  },
+  {
+    key: "uzbekistan",
+    image: "https://images.unsplash.com/photo-1627456838825-31652e8c4f14?w=400",
+    alt: "Tashkent, Uzbekistan",
+  },
+  {
+    key: "turkey",
+    image: "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=400",
+    alt: "Istanbul, Turkey",
+  },
+  {
+    key: "indonesia",
+    image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=400",
+    alt: "Bali, Indonesia",
+  },
+  {
+    key: "nepal",
+    image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=400",
+    alt: "Kathmandu, Nepal",
+  },
+  {
+    key: "china",
+    image: "https://images.unsplash.com/photo-1508804185872-d7badad00f7d?w=400",
+    alt: "Beijing, China",
+  },
+  {
+    key: "kazakhstan",
+    image: "https://images.unsplash.com/photo-1626908013351-800add11c3df?w=400",
+    alt: "Astana, Kazakhstan",
+  },
+  {
+    key: "japan",
+    image: "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=400",
+    alt: "Tokyo, Japan",
+  },
+  {
+    key: "kyrgyzstan",
+    image: "https://images.unsplash.com/photo-1469850407443-6f1b1337f8a5?w=400",
+    alt: "Bishkek, Kyrgyzstan",
+  },
+  {
+    key: "southAfrica",
+    image: "https://images.unsplash.com/photo-1580060839134-75a5edca2e27?w=400",
+    alt: "Cape Town, South Africa",
+  },
+  {
+    key: "schengen",
+    image: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=400",
+    alt: "Paris, Schengen Area",
+  },
+];
+
 const servicesData = [
   {
     key: "airCharter",
@@ -142,6 +220,69 @@ function Services() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {servicesData.map((service, index) => (
               <ServiceCard key={service.key} service={service} index={index} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 bg-gradient-to-b from-white to-[#f5f3ef] overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="text-center mb-16"
+          >
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-sm font-bold uppercase tracking-[0.3em] text-blue-600 mb-3"
+            >
+              Worldwide Coverage
+            </motion.p>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              {t("services.visaSectionTitle")}
+            </h2>
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+              {t("services.visaSectionDesc")}
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-4">
+            {visaCountries.map((country, i) => (
+              <motion.div
+                key={country.key}
+                initial={{ opacity: 0, y: 30, scale: 0.9 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.03 }}
+                whileHover={{
+                  y: -8,
+                  scale: 1.03,
+                  transition: { type: "spring", stiffness: 300 },
+                }}
+                className="group relative h-40 rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl cursor-pointer"
+              >
+                <img
+                  src={country.image}
+                  alt={country.alt}
+                  loading="lazy"
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+                <div className="absolute inset-0 bg-blue-900/0 group-hover:bg-blue-900/30 transition-colors duration-500" />
+
+                <div className="relative z-10 h-full flex flex-col justify-end p-4">
+                  <h3 className="text-white font-bold text-sm md:text-base leading-tight">
+                    {t(`services.countries.${country.key}`)}
+                  </h3>
+                  <p className="text-white/70 text-xs mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    {t("services.visaPlusPackage")}
+                  </p>
+                </div>
+              </motion.div>
             ))}
           </div>
         </div>

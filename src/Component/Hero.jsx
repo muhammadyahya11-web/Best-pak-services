@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function Hero() {
   const [mounted, setMounted] = useState(false);
@@ -20,39 +20,50 @@ export default function Hero() {
       {/* Background Video */}
       <motion.iframe
         style={{ opacity }}
-        className="
-          absolute top-0 left-0 
-          w-full h-full 
-          scale-125
-          md:scale-125
-          sm:scale-150
-        "
+        className="absolute top-0 left-0 w-full h-full scale-125 object-cover"
         src={videoSrc}
         title="Hero Video"
         allow="autoplay"
       />
 
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black/60 sm:bg-black/50" />
+      {/* Dark Premium Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70" />
 
       {/* Content */}
-      <div className="relative z-10 h-full flex items-center justify-center text-center px-4 sm:px-6">
+      <div className="relative z-10 h-full flex items-center justify-center text-center px-5 sm:px-6">
 
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="
-            text-white font-bold leading-tight
-            text-2xl
-            sm:text-4xl
-            md:text-5xl
-            lg:text-6xl
-            max-w-3xl
-          "
+          transition={{ duration: 0.9 }}
+          className="max-w-4xl"
         >
-          Explore unforgettable journeys around the world  wirh <span className="text-blue-500">BEST PAK SERVICES</span>
-        </motion.h1>
+
+          {/* Tagline */}
+          <p className="mb-4 text-blue-400 tracking-[0.3em] uppercase text-xs sm:text-sm font-semibold">
+            Premium Travel Experience
+          </p>
+
+          {/* Main Heading */}
+          <h1 className="text-white font-extrabold leading-tight text-3xl sm:text-5xl md:text-6xl lg:text-7xl">
+            Explore unforgettable journeys around the world{" "}
+            <span className="text-blue-500 relative">
+              with{" "}
+              <span className="text-white font-black drop-shadow-lg">
+                BEST PAK
+              </span>{" "}
+              <span className="text-blue-400">SERVICES</span>
+            </span>
+          </h1>
+
+          {/* Small underline effect */}
+          <motion.div
+            initial={{ width: 0 }}
+            animate={{ width: "120px" }}
+            transition={{ delay: 0.6, duration: 0.8 }}
+            className="h-[2px] bg-blue-500 mx-auto mt-6 rounded-full"
+          />
+        </motion.div>
 
       </div>
     </section>

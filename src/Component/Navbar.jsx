@@ -18,44 +18,46 @@ export default function Navbar() {
     { name: t("nav.contact"), path: "/contact" },
   ];
 
-  const menuVariants = {
-    closed: { x: "100%" },
-    open: { x: 0 },
-  };
-
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-slate-950/80 backdrop-blur-lg border-b border-white/5">
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 lg:px-10 py-4 text-white">
-        <motion.h1
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-2xl md:text-3xl font-bold tracking-[0.15em]"
-        >
-          <span className="text-blue-400">BEST PAK SERVICES</span>
-        </motion.h1>
+    <nav className="fixed top-0 left-0 w-full z-50 bg-slate-950/70 backdrop-blur-xl border-b border-white/5">
 
-        <ul className="hidden lg:flex gap-10 text-sm uppercase tracking-wider items-center">
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-5 md:px-10 py-4">
+
+        {/* Logo */}
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-xl md:text-2xl font-extrabold tracking-[0.2em]"
+        >
+          <span className="text-white">BEST PAK</span>{" "}
+          <span className="text-blue-500">SERVICES</span>
+        </motion.div>
+
+        {/* Desktop Links */}
+        <ul className="hidden lg:flex items-center gap-8 text-sm font-medium tracking-wide">
           {links.map((item) => (
             <li key={item.path}>
               <NavLink
                 to={item.path}
                 className={({ isActive }) =>
-                  `relative pb-1 transition-colors duration-300 ${
+                  `relative transition-colors duration-300 ${
                     isActive ? "text-blue-400" : "text-gray-300 hover:text-white"
                   }`
                 }
               >
                 {({ isActive }) => (
                   <motion.span
-                    whileHover={{ scale: 1.08 }}
-                    className="relative inline-block transition-colors duration-300"
+                    whileHover={{ y: -2 }}
+                    className="relative inline-block"
                   >
                     {item.name}
+
+                    {/* underline */}
                     {isActive && (
                       <motion.span
-                        layoutId="underline"
-                        className="absolute left-0 -bottom-1 w-full h-[2px] bg-blue-400 rounded-full"
+                        layoutId="nav-underline"
+                        className="absolute left-0 -bottom-2 w-full h-[2px] bg-blue-500 rounded-full"
                       />
                     )}
                   </motion.span>
@@ -65,71 +67,90 @@ export default function Navbar() {
           ))}
         </ul>
 
+        {/* Right actions */}
         <div className="flex items-center gap-3">
+
+          {/* Language */}
           <motion.button
-            whileHover={{ scale: 1.08 }}
+            whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={toggleLanguage}
-            className="flex items-center gap-2 px-3 py-2 rounded-full bg-white/10 hover:bg-white/20 text-white text-sm font-medium transition-all duration-300"
+            className="flex items-center gap-2 px-3 py-2 rounded-full bg-white/10 hover:bg-white/20 text-sm text-white transition"
           >
             <Globe size={16} />
-            <span>{isRTL ? "EN" : "عربي"}</span>
+            {isRTL ? "EN" : "AR"}
           </motion.button>
 
-          <motion.div whileHover={{ scale: 1.1 }} className="hidden md:block">
-            <Search size={20} className="cursor-pointer text-gray-400 hover:text-white transition-colors" />
-          </motion.div>
+          {/* Search */}
+          <button className="hidden md:flex p-2 rounded-full hover:bg-white/10 transition">
+            <Search size={18} className="text-gray-300 hover:text-white" />
+          </button>
 
+          {/* Mobile menu */}
           <button
             onClick={() => setOpen(true)}
-            className="lg:hidden p-2 rounded-lg hover:bg-white/10 transition-colors"
+            className="lg:hidden p-2 rounded-lg hover:bg-white/10 transition"
           >
             <Menu size={26} />
           </button>
         </div>
       </div>
 
+      {/* Mobile Menu */}
       <AnimatePresence>
         {open && (
           <motion.div
-            variants={menuVariants}
-            initial="closed"
-            animate="open"
-            exit="closed"
-            transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed top-0 right-0 w-72 h-full bg-slate-950 text-white p-6 shadow-2xl z-50"
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ type: "spring", stiffness: 200, damping: 25 }}
+            className="fixed top-0 right-0 w-80 h-full bg-slate-950/95 backdrop-blur-xl border-l border-white/10 p-6 z-50"
           >
-            <div className="flex justify-between items-center mb-8">
-              <span className="text-lg font-bold tracking-wider">Menu</span>
+
+            {/* Header */}
+            <div className="flex items-center justify-between mb-10">
+              <h2 className="text-white text-lg font-bold tracking-widest">
+                MENU
+              </h2>
               <button
                 onClick={() => setOpen(false)}
-                className="p-2 rounded-lg hover:bg-white/10 transition-colors"
+                className="p-2 hover:bg-white/10 rounded-lg transition"
               >
-                <X size={24} />
+                <X size={22} />
               </button>
             </div>
 
-            <div className="flex flex-col gap-4 text-lg">
+            {/* Links */}
+            <div className="flex flex-col gap-5">
               {links.map((item) => (
                 <NavLink
                   key={item.path}
                   to={item.path}
                   onClick={() => setOpen(false)}
                   className={({ isActive }) =>
-                    `pb-3 border-b border-white/10 transition-all duration-300 ${
-                      isActive ? "text-blue-400" : "text-gray-300 hover:text-white"
+                    `text-lg font-medium transition ${
+                      isActive
+                        ? "text-blue-400"
+                        : "text-gray-300 hover:text-white"
                     }`
                   }
                 >
-                  <motion.span whileTap={{ x: -10 }} className="inline-block">
+                  <motion.div whileTap={{ x: -8 }}>
                     {item.name}
-                  </motion.span>
+                  </motion.div>
                 </NavLink>
               ))}
             </div>
+
+            {/* Bottom branding */}
+            <div className="absolute bottom-6 left-6 text-xs text-gray-500">
+              BEST PAK SERVICES © {new Date().getFullYear()}
+            </div>
+
           </motion.div>
         )}
       </AnimatePresence>
+
     </nav>
   );
 }
