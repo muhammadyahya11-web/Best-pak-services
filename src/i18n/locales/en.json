@@ -3,7 +3,6 @@
     "home": "Home",
     "about": "About",
     "services": "Services",
-    "packages": "Packages",
     "contact": "Contact"
   },
   "home": {
@@ -62,6 +61,18 @@
   "services": {
     "title": "Professional Travel Services",
     "subtitle": "We offer a comprehensive range of travel services to meet all your needs",
+    "whatWeDo": "What We Do",
+    "worldwideCoverage": "Worldwide Coverage",
+    "learnMore": "Learn more",
+    "whyChooseUs": "Why Choose Us",
+    "whyChooseUsDesc": "We deliver exceptional service backed by years of industry expertise and a commitment to your satisfaction.",
+    "jobOpportunities": "Overseas Job Opportunities",
+    "jobOpportunitiesDesc": "Build your career internationally with our placement services in Europe",
+    "luxembourgJobs": "Luxembourg Jobs",
+    "luxembourgJobsDesc": "Work in Europe's richest economy with legal work permits and high salaries",
+    "latviaJobs": "Latvia Jobs",
+    "latviaJobsDesc": "European career opportunities with fast processing and secure environment",
+    "viewDetails": "View Details",
     "visaSectionTitle": "Tourist Services & Visit Visas",
     "visaSectionDesc": "We provide complete tourist services for the following countries including visa processing, air tickets, transport, hotels, and tourist events",
     "visaServicesTitle": "Visa Services",
@@ -157,6 +168,7 @@
       "message": "Message",
       "sendMessage": "Send Message",
       "requirements": {
+        "select": "Select requirement",
         "corporate": "Corporate travel",
         "flights": "Flight booking",
         "hotels": "Hotel booking",
@@ -215,5 +227,64 @@
       "title": "Why Choose BPS",
       "subtitle": "We provide end-to-end support for your overseas career journey"
     }
+  },
+  "latvia": {
+    "tagline": "BPS - Your Partner in Progress",
+    "heroTitle": "LATVIA WORK OPPORTUNITIES",
+    "heroDesc": "Explore genuine job opportunities in Latvia (Europe) under official work permit programs.",
+    "sectorsTitle": "AVAILABLE SECTORS",
+    "sectors": {
+      "warehouse": "Warehouse Department",
+      "logistics": "Logistics",
+      "construction": "Construction"
+    },
+    "highlightsTitle": "KEY HIGHLIGHTS",
+    "highlights": {
+      "legal": "100% Legal Work Permit Process",
+      "processing": "Fast Processing (4-5 Months)",
+      "demand": "High Demand Jobs",
+      "secure": "Secure European Career Opportunity"
+    },
+    "salaryTitle": "SALARY STRUCTURE (in Euro)",
+    "salaryLevels": {
+      "underMatric": "Under Matric",
+      "intermediate": "Intermediate",
+      "bachelor": "Bachelor/Master"
+    },
+    "salaryRanges": {
+      "underMatric": "€1200-€2200",
+      "intermediate": "€2200 - €3000",
+      "bachelor": "€3000-€3500"
+    },
+    "benefitsTitle": "COMPANY BENEFITS (As per Latvia Labour Law)",
+    "benefits": {
+      "accommodation": "Accommodation provided",
+      "transport": "Transportation provided",
+      "medical": "Medical insurance (one time coverage)",
+      "meal": "Meal allowance",
+      "ticket": "Annual return ticket",
+      "contract": "Legal employment contract",
+      "safe": "Safe & secure working environment"
+    },
+    "processingTitle": "PROCESSING TIME",
+    "processingTime": "Total processing time: 120 Days (4 Months)",
+    "processingIncludes": "Includes: Offer Letter, Work Permit, Embassy Appointment, Visa Filing",
+    "costTitle": "TOTAL SERVICE COST",
+    "cost": "Total Cost: 10.000 QAR",
+    "paymentTitle": "PAYMENT PLAN (4 Installments in QAR)",
+    "installments": {
+      "first": "Upon signing agreement",
+      "second": "After Offer Letter",
+      "third": "After Work Permit",
+      "fourth": "After Visa approval"
+    },
+    "notesTitle": "IMPORTANT NOTES",
+    "notes": {
+      "professional": "Process handled professionally & legally",
+      "documents": "Genuine documents required",
+      "approval": "Final visa approval depends on immigration authorities"
+    },
+    "ctaTitle": "Start Your European Career with Latvia Today!",
+    "ctaButton": "Contact Us"
   }
 }

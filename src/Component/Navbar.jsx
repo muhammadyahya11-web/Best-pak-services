@@ -1,23 +1,26 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Search, Menu, X, Globe } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { useLanguage } from "../context/LanguageContext";
+import { useLanguage } from "../context/LanguageContext.jsx";
+
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
   const { t } = useTranslation();
   const { toggleLanguage, isRTL } = useLanguage();
+  const navigate = useNavigate();
 
-  const links = [
+const links = [
     { name: t("nav.home"), path: "/" },
     { name: t("nav.about"), path: "/about" },
     { name: t("nav.services"), path: "/services" },
-  
     { name: t("nav.contact"), path: "/contact" },
-    { name: "BPS Luxembourg", path: "/bps" },
-    { name: "Latvia Jobs", path: "/latvia" },
+    { name: t("bps.navLabel"), path: "/bps" },
+    { name: t("services.latviaJobs"), path: "/latvia" },
   ];
 
   return (
@@ -84,9 +87,14 @@ export default function Navbar() {
           </motion.button>
 
           {/* Search */}
-          <button className="hidden md:flex p-2 rounded-full hover:bg-white/10 transition">
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => setSearchOpen(true)}
+            className="hidden md:flex p-2 rounded-full hover:bg-white/10 transition"
+          >
             <Search size={18} className="text-gray-300 hover:text-white" />
-          </button>
+          </motion.button>
 
           {/* Mobile menu */}
           <button
@@ -97,6 +105,70 @@ export default function Navbar() {
           </button>
         </div>
       </div>
+
+      {/* Search Modal */}
+      <AnimatePresence>
+        {searchOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+            onClick={() => setSearchOpen(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              onClick={(e) => e.stopPropagation()}
+              className="bg-slate-900 rounded-2xl p-6 w-full max-w-md"
+            >
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-white font-bold text-lg">
+                  {isRTL ? "بحث" : "Search"}
+                </h3>
+                <button
+                  onClick={() => setSearchOpen(false)}
+                  className="p-2 hover:bg-white/10 rounded-lg transition"
+                >
+                  <X size={20} className="text-gray-300" />
+                </button>
+              </div>
+              <div className="flex gap-2">
+                <input
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" && searchQuery.trim()) {
+                      navigate(`/search?q=${encodeURIComponent(searchQuery)}`);
+                      setSearchOpen(false);
+                      setSearchQuery("");
+                    }
+                  }}
+                  placeholder={isRTL ? "ابحث عن وجهة..." : "Search destinations..."}
+                  className="flex-1 px-4 py-2 rounded-lg bg-white/10 text-white placeholder-gray-400 outline-none border border-white/10 focus:border-blue-500"
+                  autoFocus
+                />
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => {
+                    if (searchQuery.trim()) {
+                      navigate(`/search?q=${encodeURIComponent(searchQuery)}`);
+                      setSearchOpen(false);
+                      setSearchQuery("");
+                    }
+                  }}
+                  className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold"
+                >
+                  {isRTL ? "بحث" : "Go"}
+                </motion.button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Mobile Menu */}
       <AnimatePresence>

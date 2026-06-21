@@ -1,14 +1,16 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import about from "../assets/about-img.webp";
 import { useTranslation } from "react-i18next";
+import { useLanguage } from "../context/LanguageContext";
 
 function About() {
   const { t } = useTranslation();
   const { scrollY } = useScroll();
   const imgY = useTransform(scrollY, [600, 1200], [40, -40]);
+  const { isRTL } = useLanguage();
 
   return (
-    <section className="py-28 bg-[#f5f3ef] overflow-hidden">
+    <section className="py-28 bg-[#f5f3ef] overflow-hidden" dir={isRTL ? "rtl" : "ltr"}>
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 px-8 items-center">
         <motion.div
           initial={{ opacity: 0, x: -60 }}

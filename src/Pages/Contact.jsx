@@ -2,10 +2,57 @@ import { CheckCircle2, Mail, MapPin, Phone } from "lucide-react";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { useLanguage } from "../context/LanguageContext";
+import emailjs from "@emailjs/browser";
+import { useState } from "react";
+
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 function Contact() {
   const { t } = useTranslation();
   const { isRTL } = useLanguage();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    travelRequirement: "",
+    message: ""
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    const templateParams = {
+      to_email: "yahyaraza20@gmail.com",
+      from_name: formData.name,
+      from_email: formData.email,
+      travel_requirement: formData.travelRequirement,
+      message: formData.message
+    };
+
+    emailjs.send(
+      EMAILJS_SERVICE_ID,
+      EMAILJS_TEMPLATE_ID,
+      templateParams,
+      EMAILJS_PUBLIC_KEY
+    ).then(() => {
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+      setFormData({ name: "", email: "", travelRequirement: "", message: "" });
+      setTimeout(() => setIsSubmitted(false), 5000);
+    }).catch((error) => {
+      console.error("EmailJS error:", error);
+      setIsSubmitting(false);
+      alert(isRTL ? "حدث خطأ أثناء إرسال البريد. يرجى المحاولة مرة أخرى." : "Error sending email. Please try again.");
+    });
+  };
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   return (
     <main className="bg-[#FCF9F3]" dir={isRTL ? "rtl" : "ltr"}>
@@ -133,7 +180,7 @@ function Contact() {
             {t("contact.getInTouch")}
           </h3>
 
-          <form onSubmit={(e) => e.preventDefault()} className="space-y-5">
+          <form onSubmit={handleSubmit} className="space-y-5">
             <div className="grid gap-5 md:grid-cols-2">
               <div>
                 <label className="block">
@@ -142,6 +189,9 @@ function Contact() {
                   </span>
                   <input
                     required
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
                     className="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none transition-all duration-300 focus:border-sky-700 focus:bg-white focus:ring-2 focus:ring-sky-700/10"
                     type="text"
                     placeholder={isRTL ? "اسمك" : "Your name"}
@@ -155,6 +205,9 @@ function Contact() {
                   </span>
                   <input
                     required
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
                     className="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none transition-all duration-300 focus:border-sky-700 focus:bg-white focus:ring-2 focus:ring-sky-700/10"
                     type="email"
                     placeholder={isRTL ? "بريدك الإلكتروني" : "you@example.com"}
@@ -168,7 +221,13 @@ function Contact() {
                 <span className="text-sm font-bold text-slate-700">
                   {t("contact.form.travelRequirement")}
                 </span>
-                <select className="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none transition-all duration-300 focus:border-sky-700 focus:bg-white focus:ring-2 focus:ring-sky-700/10">
+                <select 
+                  name="travelRequirement"
+                  value={formData.travelRequirement}
+                  onChange={handleChange}
+                  className="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none transition-all duration-300 focus:border-sky-700 focus:bg-white focus:ring-2 focus:ring-sky-700/10"
+                >
+                  <option value="">{t("contact.form.requirements.select")}</option>
                   <option>{t("contact.form.requirements.corporate")}</option>
                   <option>{t("contact.form.requirements.flights")}</option>
                   <option>{t("contact.form.requirements.hotels")}</option>
@@ -185,6 +244,9 @@ function Contact() {
                 </span>
                 <textarea
                   required
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
                   rows="5"
                   className="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none transition-all duration-300 focus:border-sky-700 focus:bg-white focus:ring-2 focus:ring-sky-700/10 resize-none"
                   placeholder={
@@ -199,12 +261,23 @@ function Contact() {
             <motion.button
               whileHover={{ scale: 1.03, y: -2 }}
               whileTap={{ scale: 0.97 }}
-              className="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-sky-600 to-blue-700 px-8 py-4 font-bold text-white shadow-lg hover:shadow-sky-500/30 transition-all duration-300"
+              className="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-sky-600 to-blue-700 px-8 py-4 font-bold text-white shadow-lg hover:shadow-sky-500/30 transition-all duration-300 disabled:opacity-50"
               type="submit"
+              disabled={isSubmitting}
             >
-              {t("contact.form.sendMessage")}
+              {isSubmitting ? (isRTL ? "جاري الإرسال..." : "Sending...") : t("contact.form.sendMessage")}
               <CheckCircle2 size={20} />
             </motion.button>
+
+            {isSubmitted && (
+              <motion.p
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="text-green-600 font-semibold"
+              >
+                {isRTL ? "تم إرسال رسالتك بنجاح!" : "Your message sent successfully!"}
+              </motion.p>
+            )}
           </form>
         </motion.div>
       </section>

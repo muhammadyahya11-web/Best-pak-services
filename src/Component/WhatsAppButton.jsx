@@ -1,10 +1,8 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import { useLanguage } from "../context/LanguageContext";
 
 export default function WhatsAppButton() {
   const { t } = useTranslation();
-  const { isRTL } = useLanguage();
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 500], [0, -30]);
   const scale = useTransform(scrollY, [0, 200], [1, 0.95]);

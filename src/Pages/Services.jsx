@@ -1,109 +1,124 @@
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import { useLanguage } from "../context/LanguageContext";
+import thilandImg from "../assets/thiland.jpg";
+import malasiaImg from "../assets/malasia.jpg";
+import singaporImg from "../assets/singapor.jpg";
+import azabaijanImg from "../assets/azabaijan.jpg";
+import uaeImg from "../assets/uae.jpg";
+import uzbakistanImg from "../assets/uzbakistan.jpg";
+import turkeyImg from "../assets/turkey.jpg";
+import indonesiaImg from "../assets/indonesia.jpg";
+import nepalImg from "../assets/nepal.jpg";
+import chinaImg from "../assets/china.jpg";
+import kazakhstanImg from "../assets/kazakhstan.jpg";
+import japanImg from "../assets/japan.jpg";
+import kygistanImg from "../assets/kygistan.jpg";
+import southAfricaImg from "../assets/south africa.jpg";
+import parisImg from "../assets/hero.png";
+import flightImg from "../assets/flight.jpg";
+import hotelImg from "../assets/hotel.jpg";
+import visaImg from "../assets/visa services.jpg";
+import tourImg from "../assets/tour.jpg";
 
 const visaCountries = [
   {
     key: "thailand",
-    image: "https://images.unsplash.com/photo-1508009603885-50cf7c579365?w=400",
+    image: thilandImg,
     alt: "Bangkok, Thailand",
   },
   {
     key: "malaysia",
-    image: "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=400",
+    image: malasiaImg,
     alt: "Kuala Lumpur, Malaysia",
   },
   {
     key: "singapore",
-    image: "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=400",
+    image: singaporImg,
     alt: "Singapore",
   },
   {
     key: "azerbaijan",
-    image: "https://images.unsplash.com/photo-1609921212029-bb5a28e60960?w=400",
+    image: azabaijanImg,
     alt: "Baku, Azerbaijan",
   },
   {
     key: "dubai",
-    image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=400",
+    image: uaeImg,
     alt: "Dubai, UAE",
   },
   {
     key: "uzbekistan",
-    image: "https://images.unsplash.com/photo-1627456838825-31652e8c4f14?w=400",
+    image: uzbakistanImg,
     alt: "Tashkent, Uzbekistan",
   },
   {
     key: "turkey",
-    image: "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=400",
+    image: turkeyImg,
     alt: "Istanbul, Turkey",
   },
   {
     key: "indonesia",
-    image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=400",
+    image: indonesiaImg,
     alt: "Bali, Indonesia",
   },
   {
     key: "nepal",
-    image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=400",
+    image: nepalImg,
     alt: "Kathmandu, Nepal",
   },
   {
     key: "china",
-    image: "https://images.unsplash.com/photo-1508804185872-d7badad00f7d?w=400",
+    image: chinaImg,
     alt: "Beijing, China",
   },
   {
     key: "kazakhstan",
-    image: "https://images.unsplash.com/photo-1626908013351-800add11c3df?w=400",
+    image: kazakhstanImg,
     alt: "Astana, Kazakhstan",
   },
   {
     key: "japan",
-    image: "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=400",
+    image: japanImg,
     alt: "Tokyo, Japan",
   },
   {
     key: "kyrgyzstan",
-    image: "https://images.unsplash.com/photo-1469850407443-6f1b1337f8a5?w=400",
+    image: kygistanImg,
     alt: "Bishkek, Kyrgyzstan",
   },
   {
     key: "southAfrica",
-    image: "https://images.unsplash.com/photo-1580060839134-75a5edca2e27?w=400",
+    image: southAfricaImg,
     alt: "Cape Town, South Africa",
   },
   {
     key: "schengen",
-    image: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=400",
+    image: parisImg,
     alt: "Paris, Schengen Area",
   },
 ];
 
 const servicesData = [
- 
   {
     key: "flights",
-    image:
-      "https://images.unsplash.com/photo-1436491865332-7a61a109db05?w=600",
+    image: flightImg,
     icon: "🛫",
   },
   {
     key: "visaServices",
-    image:
-      "https://images.unsplash.com/photo-1565967511849-76a60a516170?w=600",
+    image: visaImg,
     icon: "📋",
   },
- 
+
   {
     key: "hotels",
-    image:
-      "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600",
+    image: hotelImg,
     icon: "🏨",
   },
   {
     key: "tours",
-    image:
-      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600",
+    image: tourImg,
     icon: "🗺️",
   },
   {
@@ -112,7 +127,7 @@ const servicesData = [
       "https://images.unsplash.com/photo-1530521954074-e64f6810b32d?w=600",
     icon: "🌍",
   },
- 
+
 ];
 
 function ServiceCard({ service, index }) {
@@ -149,7 +164,7 @@ function ServiceCard({ service, index }) {
           whileHover={{ x: 5 }}
           className="inline-flex items-center gap-1 text-blue-600 font-semibold text-sm group-hover:gap-2 transition-all duration-300"
         >
-          Learn more →
+          {t("services.learnMore")} →
         </motion.span>
       </div>
     </motion.div>
@@ -158,6 +173,7 @@ function ServiceCard({ service, index }) {
 
 function Services() {
   const { t } = useTranslation();
+  const { isRTL } = useLanguage();
 
   const features = [
     { icon: "✓", title: "Expert Team", desc: "Dedicated professionals at your service" },
@@ -165,38 +181,41 @@ function Services() {
     { icon: "✓", title: "Best Prices", desc: "Competitive rates guaranteed" },
   ];
 
-  return (
-    <div className="min-h-screen bg-[#fcf9f3]">
-      <section className="relative pt-36 pb-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-gray-900 to-slate-950" />
-        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-80 h-80 bg-purple-500/20 rounded-full blur-3xl" />
+  const videoSrc = "https://flymi.com/wp-content/uploads/2025/08/travel-video-.-1.mp4";
 
-        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-sm font-bold uppercase tracking-[0.3em] text-blue-300 mb-4"
+  return (
+    <div className="min-h-[50%] bg-[#fcf9f3]" dir={isRTL ? "rtl" : "ltr"}>
+      <section className="relative h-[430px] w-full overflow-hidden">
+        <motion.video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src={videoSrc} type="video/mp4" />
+        </motion.video>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/70" />
+        <div className="relative z-10 h-full flex items-center justify-center text-center px-5">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9 }}
+            className="max-w-4xl"
           >
-            What We Do
-          </motion.p>
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-5xl md:text-6xl font-bold text-white leading-tight"
-          >
-            {t("services.title")}
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-6 text-lg text-gray-300 max-w-2xl mx-auto"
-          >
-            {t("services.subtitle")}
-          </motion.p>
+            <p className="mb-4 text-blue-400 tracking-[0.3em] uppercase text-xs sm:text-sm font-semibold">
+              {t("services.whatWeDo")}
+            </p>
+            <h1 className="text-white font-extrabold leading-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
+              {t("services.title")}
+            </h1>
+            <motion.div
+              initial={{ width: 0 }}
+              animate={{ width: "120px" }}
+              transition={{ delay: 0.6, duration: 0.8 }}
+              className="h-[2px] bg-blue-500 mx-auto mt-6 rounded-full"
+            />
+          </motion.div>
         </div>
       </section>
 
@@ -225,7 +244,7 @@ function Services() {
               viewport={{ once: true }}
               className="text-sm font-bold uppercase tracking-[0.3em] text-blue-600 mb-3"
             >
-              Worldwide Coverage
+              {t("services.worldwideCoverage")}
             </motion.p>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               {t("services.visaSectionTitle")}
@@ -282,10 +301,10 @@ function Services() {
             className="text-center mb-12"
           >
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Why Choose Us
+              {t("services.whyChooseUs")}
             </h2>
             <p className="text-gray-600 max-w-xl mx-auto">
-              We deliver exceptional service backed by years of industry expertise and a commitment to your satisfaction.
+              {t("services.whyChooseUsDesc")}
             </p>
           </motion.div>
           <div className="grid md:grid-cols-3 gap-8">
@@ -317,33 +336,33 @@ function Services() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Overseas Job Opportunities
+              {t("services.jobOpportunities")}
             </h2>
             <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-              Build your career internationally with our placement services in Europe
+              {t("services.jobOpportunitiesDesc")}
             </p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             <motion.a
               href="/bps"
-              initial={{ opacity: 0, x: -50 }}
+              initial={{ opacity: 0, x: isRTL ? 50 : -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               whileHover={{ y: -8, scale: 1.02 }}
               className="group block bg-gradient-to-br from-blue-50 to-white rounded-3xl p-8 shadow-lg border border-blue-100 text-center"
             >
               <div className="text-6xl mb-4 group-hover:scale-110 transition-transform duration-300">🇱🇺</div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-3">Luxembourg Jobs</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-3">{t("services.luxembourgJobs")}</h3>
               <p className="text-gray-600 mb-4">
-                Work in Europe's richest economy with legal work permits and high salaries
+                {t("services.luxembourgJobsDesc")}
               </p>
-              <span className="text-blue-600 font-semibold">View Details →</span>
+              <span className="text-blue-600 font-semibold">{t("services.viewDetails")} →</span>
             </motion.a>
 
             <motion.a
               href="/latvia"
-              initial={{ opacity: 0, x: 50 }}
+              initial={{ opacity: 0, x: isRTL ? -50 : 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
@@ -351,11 +370,11 @@ function Services() {
               className="group block bg-gradient-to-br from-purple-50 to-white rounded-3xl p-8 shadow-lg border border-purple-100 text-center"
             >
               <div className="text-6xl mb-4 group-hover:scale-110 transition-transform duration-300">🇱🇻</div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-3">Latvia Jobs</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-3">{t("services.latviaJobs")}</h3>
               <p className="text-gray-600 mb-4">
-                European career opportunities with fast processing and secure environment
+                {t("services.latviaJobsDesc")}
               </p>
-              <span className="text-purple-600 font-semibold">View Details →</span>
+              <span className="text-purple-600 font-semibold">{t("services.viewDetails")} →</span>
             </motion.a>
           </div>
         </div>

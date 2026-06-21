@@ -1,7 +1,7 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll } from "framer-motion";
 
 export default function Hero() {
-  const { scrollY } = useScroll();
+  useScroll();
 
   const videoSrc =
     "https://flymi.com/wp-content/uploads/2025/08/travel-video-.-1.mp4";
