@@ -1,8 +1,10 @@
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 
 export default function CTA() {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   return (
     <section className="relative overflow-hidden py-28 text-white text-center">
       <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900" />
@@ -49,14 +51,14 @@ export default function CTA() {
           transition={{ delay: 0.4, duration: 0.5 }}
           className="mt-10 inline-block"
         >
-          <motion.a
-            href="/contact"
+          <motion.button
             whileHover={{ scale: 1.08 }}
             whileTap={{ scale: 0.95 }}
+            onClick={() => navigate("/contact")}
             className="mt-10 px-10 py-4 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 font-semibold shadow-lg hover:shadow-blue-500/40 transition-all duration-300 inline-block text-lg"
           >
             {t("home.ctaButton")}
-          </motion.a>
+          </motion.button>
         </motion.div>
       </div>
     </section>

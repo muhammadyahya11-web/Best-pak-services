@@ -13,7 +13,7 @@ export default function WhatsAppButton() {
       target="_blank"
       rel="noopener noreferrer"
       style={{ y, scale }}
-      className="fixed bottom-6 right-6 z-[9999] flex items-center gap-3 group"
+      className="fixed top-[50%] right-4 z-[9999] flex items-center gap-3 group"
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
       aria-label={t("contact.phone", "WhatsApp")}

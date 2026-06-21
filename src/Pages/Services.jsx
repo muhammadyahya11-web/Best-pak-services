@@ -11,15 +11,17 @@ import turkeyImg from "../assets/turkey.jpg";
 import indonesiaImg from "../assets/indonesia.jpg";
 import nepalImg from "../assets/nepal.jpg";
 import chinaImg from "../assets/china.jpg";
+
 import kazakhstanImg from "../assets/kazakhstan.jpg";
 import japanImg from "../assets/japan.jpg";
 import kygistanImg from "../assets/kygistan.jpg";
 import southAfricaImg from "../assets/south africa.jpg";
-import parisImg from "../assets/hero.png";
+import shengen from "../assets/shengen.jpg";
 import flightImg from "../assets/flight.jpg";
 import hotelImg from "../assets/hotel.jpg";
 import visaImg from "../assets/visa services.jpg";
 import tourImg from "../assets/tour.jpg";
+import { useNavigate } from "react-router-dom";
 
 const visaCountries = [
   {
@@ -94,7 +96,7 @@ const visaCountries = [
   },
   {
     key: "schengen",
-    image: parisImg,
+    image: shengen,
     alt: "Paris, Schengen Area",
   },
 ];
@@ -146,6 +148,7 @@ function ServiceCard({ service, index }) {
         <img
           src={service.image}
           alt={t(`services.${service.key}Title`)}
+          loading="lazy"
           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
@@ -174,6 +177,7 @@ function ServiceCard({ service, index }) {
 function Services() {
   const { t } = useTranslation();
   const { isRTL } = useLanguage();
+  const navigate = useNavigate();
 
   const features = [
     { icon: "✓", title: "Expert Team", desc: "Dedicated professionals at your service" },
@@ -343,14 +347,14 @@ function Services() {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            <motion.a
-              href="/bps"
+           <div className="grid md:grid-cols-2  gap-8 max-w-5xl mx-auto">
+            <motion.div
+             onClick={() => navigate("/bps")}
               initial={{ opacity: 0, x: isRTL ? 50 : -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               whileHover={{ y: -8, scale: 1.02 }}
-              className="group block bg-gradient-to-br from-blue-50 to-white rounded-3xl p-8 shadow-lg border border-blue-100 text-center"
+              className="group block bg-gradient-to-br from-blue-50 to-white rounded-3xl p-8 shadow-lg border border-blue-100 text-center cursor-pointer"
             >
               <div className="text-6xl mb-4 group-hover:scale-110 transition-transform duration-300">🇱🇺</div>
               <h3 className="text-2xl font-bold text-gray-900 mb-3">{t("services.luxembourgJobs")}</h3>
@@ -358,24 +362,23 @@ function Services() {
                 {t("services.luxembourgJobsDesc")}
               </p>
               <span className="text-blue-600 font-semibold">{t("services.viewDetails")} →</span>
-            </motion.a>
+            </motion.div>
 
-            <motion.a
-              href="/latvia"
-              initial={{ opacity: 0, x: isRTL ? -50 : 50 }}
+            <motion.div
+              onClick={() => navigate("/latvia")}
+              initial={{ opacity: 0, x: isRTL ? 50 : -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
               whileHover={{ y: -8, scale: 1.02 }}
-              className="group block bg-gradient-to-br from-purple-50 to-white rounded-3xl p-8 shadow-lg border border-purple-100 text-center"
+              className="group block bg-gradient-to-br from-blue-50 to-white rounded-3xl p-8 shadow-lg border border-blue-100 text-center cursor-pointer"
             >
               <div className="text-6xl mb-4 group-hover:scale-110 transition-transform duration-300">🇱🇻</div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-3">{t("services.latviaJobs")}</h3>
+              <h3 className="text-2xl bg-green-500 font-bold text-gray-900 mb-3">{t("services.latviaJobs")}</h3>
               <p className="text-gray-600 mb-4">
                 {t("services.latviaJobsDesc")}
               </p>
               <span className="text-purple-600 font-semibold">{t("services.viewDetails")} →</span>
-            </motion.a>
+            </motion.div>
           </div>
         </div>
       </section>

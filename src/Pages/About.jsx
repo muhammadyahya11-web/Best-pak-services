@@ -2,12 +2,14 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import about from "../assets/about-img.webp";
 import { useTranslation } from "react-i18next";
 import { useLanguage } from "../context/LanguageContext";
+import { useNavigate } from "react-router-dom";
 
 function About() {
   const { t } = useTranslation();
   const { scrollY } = useScroll();
   const imgY = useTransform(scrollY, [600, 1200], [40, -40]);
   const { isRTL } = useLanguage();
+  const navigate = useNavigate();
 
   return (
     <section className="py-28 bg-[#f5f3ef] overflow-hidden" dir={isRTL ? "rtl" : "ltr"}>
@@ -60,18 +62,19 @@ function About() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => navigate("/services")}
               className="px-8 py-3 bg-blue-700 text-white rounded-full hover:bg-blue-800 transition-all shadow-lg shadow-blue-700/20 font-semibold"
             >
               {t("about.button")}
             </motion.button>
-            <motion.a
-              href="/services"
+            <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => navigate("/services")}
               className="px-8 py-3 bg-white text-gray-900 rounded-full hover:bg-gray-100 transition-all border border-gray-200 font-semibold"
             >
               {t("nav.services")}
-            </motion.a>
+            </motion.button>
           </motion.div>
         </motion.div>
 
@@ -85,6 +88,7 @@ function About() {
             whileHover={{ scale: 1.03 }}
             src={about}
             alt="About Millennium Travel"
+            loading="lazy"
             className="relative rounded-3xl shadow-2xl w-full"
           />
           <div className="absolute -bottom-4 -right-4 bg-white rounded-2xl shadow-xl p-4 flex items-center gap-3">

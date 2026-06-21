@@ -1,9 +1,15 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import emailjs from "@emailjs/browser";
+
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 export default function Popup() {
   const [isOpen, setIsOpen] = useState(false);
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   useEffect(() => {
@@ -19,9 +25,29 @@ export default function Popup() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (email) {
-      setIsSubmitted(true);
-      setEmail("");
+    if (email && phone) {
+      emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name: email,
+          from_email: email,
+          phone: phone,
+          message: `WhatsApp: ${phone}`,
+        },
+        EMAILJS_PUBLIC_KEY
+      ).then(() => {
+        setIsSubmitted(true);
+        setEmail("");
+        setPhone("");
+        setTimeout(() => setIsOpen(false), 3000);
+      }).catch((error) => {
+        console.error("EmailJS error:", error);
+        setIsSubmitted(true);
+        setEmail("");
+        setPhone("");
+        setTimeout(() => setIsOpen(false), 3000);
+      });
     }
   };
 
@@ -76,6 +102,14 @@ export default function Popup() {
                     onChange={(e) => setEmail(e.target.value)}
                     className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
                   />
+                  <input
+                    type="tel"
+                    required
+                    placeholder="Enter your WhatsApp number"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+                  />
                   <motion.button
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
@@ -102,7 +136,7 @@ export default function Popup() {
                   Thank You!
                 </h2>
                 <p className="text-gray-600">
-                  Check your inbox for exclusive travel offers.
+                  We will contact you shortly via WhatsApp/Email.
                 </p>
               </div>
             )}

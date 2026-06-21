@@ -1,10 +1,12 @@
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { useLanguage } from "../context/LanguageContext";
+import { useNavigate } from "react-router-dom";
 
 function Latvia() {
   const { t } = useTranslation();
   const { isRTL } = useLanguage();
+  const navigate = useNavigate();
 
   const sectors = [
     { key: "warehouse", icon: "📦" },
@@ -315,14 +317,14 @@ function Latvia() {
             <h3 className="text-3xl font-bold mb-6">
               {t("latvia.ctaTitle")}
             </h3>
-            <motion.a
-              href="/contact"
+            <motion.button
               whileHover={{ scale: 1.08, y: -2 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => navigate("/contact")}
               className="inline-block px-12 py-5 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-full hover:from-blue-700 hover:to-blue-800 transition-all shadow-lg shadow-blue-700/30 font-bold text-xl"
             >
               {t("latvia.ctaButton")}
-            </motion.a>
+            </motion.button>
           </motion.div>
         </div>
       </section>

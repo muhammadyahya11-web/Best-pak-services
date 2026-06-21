@@ -1,8 +1,10 @@
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 
 function Bps() {
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
   const sectors = [
     { key: "warehouse", icon: "📦" },
@@ -267,14 +269,14 @@ function Bps() {
             <p className="text-xl mb-6 font-light">
               {t("bps.ctaText")}
             </p>
-            <motion.a
-              href="/contact"
+            <motion.button
               whileHover={{ scale: 1.08, y: -2 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => navigate("/contact")}
               className="inline-block px-12 py-5 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-full hover:from-blue-700 hover:to-blue-800 transition-all shadow-lg shadow-blue-700/30 font-bold text-xl"
             >
               {t("bps.ctaButton")}
-            </motion.a>
+            </motion.button>
           </motion.div>
         </div>
       </section>

@@ -124,6 +124,7 @@ export default function Testimonials() {
                   whileHover={{ scale: 1.1 }}
                   src={item.image}
                   alt={isAr ? item.nameAr : item.name}
+                  loading="lazy"
                   className="w-16 h-16 rounded-full object-cover border-2 border-blue-100"
                 />
 
