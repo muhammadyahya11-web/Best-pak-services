@@ -373,7 +373,7 @@ function Services() {
               className="group block bg-gradient-to-br from-blue-50 to-white rounded-3xl p-8 shadow-lg border border-blue-100 text-center cursor-pointer"
             >
               <div className="text-6xl mb-4 group-hover:scale-110 transition-transform duration-300">🇱🇻</div>
-              <h3 className="text-2xl bg-green-500 font-bold text-gray-900 mb-3">{t("services.latviaJobs")}</h3>
+              <h3 className="text-2xl  font-bold text-gray-900 mb-3">{t("services.latviaJobs")}</h3>
               <p className="text-gray-600 mb-4">
                 {t("services.latviaJobsDesc")}
               </p>
