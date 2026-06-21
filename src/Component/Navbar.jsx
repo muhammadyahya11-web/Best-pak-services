@@ -14,8 +14,10 @@ export default function Navbar() {
     { name: t("nav.home"), path: "/" },
     { name: t("nav.about"), path: "/about" },
     { name: t("nav.services"), path: "/services" },
-    { name: t("nav.packages"), path: "/packages" },
+  
     { name: t("nav.contact"), path: "/contact" },
+    { name: "BPS Luxembourg", path: "/bps" },
+    { name: "Latvia Jobs", path: "/latvia" },
   ];
 
   return (

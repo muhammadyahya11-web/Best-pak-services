@@ -80,12 +80,7 @@ const visaCountries = [
 ];
 
 const servicesData = [
-  {
-    key: "airCharter",
-    image:
-      "https://images.unsplash.com/photo-1436491865332-7a61a109db05?w=600",
-    icon: "✈️",
-  },
+ 
   {
     key: "flights",
     image:
@@ -98,12 +93,7 @@ const servicesData = [
       "https://images.unsplash.com/photo-1565967511849-76a60a516170?w=600",
     icon: "📋",
   },
-  {
-    key: "meetAssist",
-    image:
-      "https://images.unsplash.com/photo-1576189603084-42d1c4e3f5a1?w=600",
-    icon: "🤝",
-  },
+ 
   {
     key: "hotels",
     image:
@@ -122,12 +112,7 @@ const servicesData = [
       "https://images.unsplash.com/photo-1530521954074-e64f6810b32d?w=600",
     icon: "🌍",
   },
-  {
-    key: "drivingPermit",
-    image:
-      "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=600",
-    icon: "🚗",
-  },
+ 
 ];
 
 function ServiceCard({ service, index }) {
@@ -319,6 +304,59 @@ function Services() {
                 <p className="text-sm text-gray-500">{feature.desc}</p>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Overseas Job Opportunities
+            </h2>
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+              Build your career internationally with our placement services in Europe
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <motion.a
+              href="/bps"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              whileHover={{ y: -8, scale: 1.02 }}
+              className="group block bg-gradient-to-br from-blue-50 to-white rounded-3xl p-8 shadow-lg border border-blue-100 text-center"
+            >
+              <div className="text-6xl mb-4 group-hover:scale-110 transition-transform duration-300">🇱🇺</div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-3">Luxembourg Jobs</h3>
+              <p className="text-gray-600 mb-4">
+                Work in Europe's richest economy with legal work permits and high salaries
+              </p>
+              <span className="text-blue-600 font-semibold">View Details →</span>
+            </motion.a>
+
+            <motion.a
+              href="/latvia"
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              whileHover={{ y: -8, scale: 1.02 }}
+              className="group block bg-gradient-to-br from-purple-50 to-white rounded-3xl p-8 shadow-lg border border-purple-100 text-center"
+            >
+              <div className="text-6xl mb-4 group-hover:scale-110 transition-transform duration-300">🇱🇻</div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-3">Latvia Jobs</h3>
+              <p className="text-gray-600 mb-4">
+                European career opportunities with fast processing and secure environment
+              </p>
+              <span className="text-purple-600 font-semibold">View Details →</span>
+            </motion.a>
           </div>
         </div>
       </section>

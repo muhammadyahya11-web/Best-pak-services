@@ -1,14 +1,16 @@
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import { NavLink } from "react-router-dom";
 
 export default function Footer() {
   const { t } = useTranslation();
+  
   const linkItems = [
-    t("nav.home"),
-    t("nav.about"),
-    t("nav.services"),
-    t("nav.packages"),
-    t("nav.contact"),
+    { name: t("nav.home"), path: "/" },
+    { name: t("nav.about"), path: "/about" },
+    { name: t("nav.services"), path: "/services" },
+    { name: t("nav.packages"), path: "/packages" },
+    { name: t("nav.contact"), path: "/contact" },
   ];
 
   return (
@@ -23,7 +25,7 @@ export default function Footer() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl font-bold text-white tracking-wide mb-2">
-            <span className="text-blue-400">MILLENNIUM</span>
+            <span className="text-blue-400">BEST PAK SERVICES</span>
           </h2>
           <p className="mt-3 text-gray-400 leading-relaxed">
             {t("home.footer.brandDesc")}
@@ -53,14 +55,16 @@ export default function Footer() {
           </h3>
           <ul className="space-y-3">
             {linkItems.map((item, i) => (
-              <li
-                key={i}
-                className="flex items-center gap-2 text-gray-400 hover:text-blue-400 cursor-pointer transition-all duration-300 group"
-              >
-                <motion.span
-                  className="w-1.5 h-1.5 rounded-full bg-gray-600 group-hover:bg-blue-400 transition-colors duration-300"
-                />
-                {item}
+              <li key={i}>
+                <NavLink
+                  to={item.path}
+                  className="flex items-center gap-2 text-gray-400 hover:text-blue-400 cursor-pointer transition-all duration-300 group"
+                >
+                  <motion.span
+                    className="w-1.5 h-1.5 rounded-full bg-gray-600 group-hover:bg-blue-400 transition-colors duration-300"
+                  />
+                  {item.name}
+                </NavLink>
               </li>
             ))}
           </ul>
@@ -75,14 +79,22 @@ export default function Footer() {
             {t("home.footer.contact")}
           </h3>
           <div className="space-y-4">
-            <p className="hover:text-blue-400 transition-colors duration-300 flex items-center gap-3">
+            <motion.a
+              href="tel:+97444769222"
+              whileHover={{ x: 5 }}
+              className="hover:text-blue-400 transition-colors duration-300 flex items-center gap-3"
+            >
               <span className="text-blue-400">●</span>
               +974 4476 9222
-            </p>
-            <p className="hover:text-blue-400 transition-colors duration-300 flex items-center gap-3">
+            </motion.a>
+            <motion.a
+              href="mailto:info@flymi.com"
+              whileHover={{ x: 5 }}
+              className="hover:text-blue-400 transition-colors duration-300 flex items-center gap-3"
+            >
               <span className="text-blue-400">●</span>
               info@flymi.com
-            </p>
+            </motion.a>
             <p className="text-gray-400 flex items-center gap-3">
               <span className="text-blue-400">●</span>
               Alfardan Centre, Doha, Qatar
@@ -92,7 +104,7 @@ export default function Footer() {
       </div>
 
       <div className="relative mt-16 border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
-        © {new Date().getFullYear()} MILLENNIUM. All rights reserved.
+        © {new Date().getFullYear()} BEST PAK SERVICES. All rights reserved.
       </div>
     </footer>
   );
