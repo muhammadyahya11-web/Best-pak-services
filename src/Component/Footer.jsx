@@ -93,7 +93,7 @@ export default function Footer() {
               className="hover:text-[var(--accent)] transition-colors duration-300 flex items-center gap-3"
             >
               <span className="text-[var(--accent)]">●</span>
-              info@flymi.com
+              info@bestpakservices.com
             </motion.a>
             <p className="text-gray-400 flex items-center gap-3">
               <span className="text-[var(--accent)]">●</span>

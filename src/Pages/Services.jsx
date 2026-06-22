@@ -46,7 +46,7 @@ const servicesData = [
   { key: "visaServices", image: visaImg, icon: "🎫" },
   { key: "hotels", image: hotelImg, icon: "🏛️" },
   { key: "tours", image: tourImg, icon: "🧭" },
-  { key: "inboundTour", image: "https://images.unsplash.com/photo-1530521954074-e64f6810b32d?w=600", icon: "🌍" },
+  
 ];
 
 function ServiceCard({ service, index }) {
@@ -122,7 +122,7 @@ function Services() {
         </div>
       </section>
 
-      <section className="relative -mt-20 pb-28 z-20">
+       <section className="relative -mt-20 pb-28 z-20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-7">
             {servicesData.map((service, index) => (
@@ -130,7 +130,7 @@ function Services() {
             ))}
           </div>
         </div>
-      </section>
+      </section> 
 
       <section className="py-28 bg-gradient-to-b from-[var(--bg-primary)] via-[var(--card-bg)] to-[var(--bg-tertiary)] overflow-hidden relative transition-colors duration-300">
         <div className="absolute top-20 left-10 w-72 h-72 bg-[var(--accent)]/5 rounded-full blur-3xl" />
@@ -258,16 +258,16 @@ function Services() {
               whileHover={{ y: -8, scale: 1.02 }}
               className="group relative bg-[var(--card-bg)] rounded-[2rem] p-10 shadow-[0_2px_20px_rgba(0,0,0,0.08)] hover:shadow-[0_30px_70px_rgba(0,0,0,0.25)] transition-all duration-500 cursor-pointer overflow-hidden"
             >
-              <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-[var(--accent)]/10 to-transparent rounded-full blur-2xl -translate-y-1/2 translate-x-1/2 group-hover:from-[var(--accent)]/15 transition-all duration-500" />
+              <div className="absolute top-0 right-0 w-80 h-80 bg-red-700 to-transparent rounded-full blur-2xl -translate-y-1/2 translate-x-1/2 group-hover:from-[var(--accent)]/15 transition-all duration-500" />
               <div className="relative z-10 text-center">
-                <div className="w-20 h-20 mx-auto mb-6 rounded-full to-[var(--accent-hover)] flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform duration-300">
+                <div className="w-20 h-20 mx-auto mb-6 rounded-full  bg-gradient-to-br from-[var(--text-primary)] to-[var(--text-secondary)] flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform duration-300">
                   <span className="text-4xl">🇱🇻</span>
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-[var(--accent)] transition-colors duration-300">{t("services.latviaJobs")}</h3>
                 <p className="text-gray-400 leading-relaxed mb-6">{t("services.latviaJobsDesc")}</p>
                 <span className="inline-flex items-center gap-2 text-[var(--accent)] font-bold text-sm tracking-wider uppercase">
                   {t("services.viewDetails")}
-                  <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                  <svg className="w-4 h-4 bg-amber-400 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
                 </span>
               </div>
               <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[var(--accent)]/60 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />

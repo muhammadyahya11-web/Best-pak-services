@@ -70,7 +70,7 @@ export default function Navbar() {
               className="text-xl md:text-2xl font-extrabold tracking-[0.18em] origin-left"
             >
               <span className="text-[var(--text-primary)]">BEST PAK</span>
-              <span className="text-[var(--accent)]"> SERVICES</span>
+              <span className="text-[var(--text-primary)]"> SERVICES</span>
             </motion.div>
           </NavLink>
 
@@ -114,7 +114,7 @@ export default function Navbar() {
           <div className="flex items-center gap-3">
 
             {/* Theme */}
-            <motion.button
+            {/* <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={toggleTheme}
@@ -123,7 +123,7 @@ export default function Navbar() {
             >
               <span className="text-lg leading-none">{getThemeIcon()}</span>
               <span className="hidden sm:inline text-sm font-medium">{getThemeLabel()}</span>
-            </motion.button>
+            </motion.button> */}
 
             {/* Language */}
             <motion.button
@@ -137,22 +137,9 @@ export default function Navbar() {
             </motion.button>
 
             {/* Search */}
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => setSearchOpen(true)}
-              className="hidden md:flex items-center justify-center w-10 h-10 rounded-full bg-[var(--bg-secondary)] hover:bg-[var(--accent)]/10 border border-[var(--border)] transition-all"
-            >
-              <Search size={18} className="text-[var(--text-secondary)]" />
-            </motion.button>
+          
 
-            {/* CTA */}
-            <NavLink
-              to="/contact"
-              className="hidden lg:flex px-5 py-2.5 rounded-full bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white font-semibold transition shadow-lg shadow-[var(--accent)]/20"
-            >
-              Apply Now
-            </NavLink>
+        
 
             {/* Mobile Menu */}
             <button
@@ -197,7 +184,7 @@ export default function Navbar() {
               </div>
 
               <div className="flex gap-2">
-                <input
+                {/* <input
                   type="text"
                   autoFocus
                   value={searchQuery}
@@ -211,14 +198,9 @@ export default function Navbar() {
                       : "Search jobs, countries, services..."
                   }
                   className="flex-1 px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-400 outline-none focus:border-blue-500"
-                />
+                /> */}
 
-                <button
-                  onClick={handleSearch}
-                  className="px-5 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold"
-                >
-                  Go
-                </button>
+             
               </div>
             </motion.div>
           </motion.div>

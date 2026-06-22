@@ -5,15 +5,15 @@ import { useLanguage } from "../context/LanguageContext";
 import { useNavigate } from "react-router-dom";
 
 const stats = [
-  { num: "20+", label: "Years of expertise" },
-  { num: "50K+", label: "Happy travellers" },
+  { num: "30+", label: "Years of Excellence" },
+  { num: "25K+", label: "Happy Clients" },
   { num: "120+", label: "Destinations" },
 ];
 
 const features = [
-  { title: "Tailored itineraries", desc: "every detail planned around your pace and preferences" },
-  { title: "Visa & documentation support", desc: "stress-free paperwork from start to finish" },
-  { title: "24/7 on-trip assistance", desc: "a real person, always reachable when it matters most" },
+  { title: "Credibility", desc: "We build trust with our customers by delivering on our promises, and providing reliable information and services to build a long term relationship" },
+  { title: "Innovation", desc: "We embrace innovation & stay up to date with the latest trends and technologies in the travel industry to continuously enhance our services and provide innovative travel solutions" },
+  { title: "Integrity", desc: "We maintain the highest ethical standards in all our operations, ensuring transparency and honesty in every client interaction" },
 ];
 
 function About() {
@@ -39,7 +39,7 @@ function About() {
         >
           {/* Star rating */}
           <div className="flex items-center gap-2 mb-6">
-            <span className="text-amber-400 tracking-widest text-sm">★★★★★</span>
+            <span className="text-[var(--accent)] tracking-widest text-sm">★★★★★</span>
             <span className="text-[var(--text-muted)] text-sm">
               {t("about.ratingText")}
             </span>
@@ -50,7 +50,7 @@ function About() {
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 bg-emerald-50 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 text-xs font-semibold uppercase tracking-widest px-4 py-2 rounded-full mb-5"
+            className="inline-flex items-center gap-2 bg-[var(--accent)]/10 text-[var(--accent)] text-xs font-semibold uppercase tracking-widest px-4 py-2 rounded-full mb-5"
           >
             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
               <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
@@ -66,9 +66,9 @@ function About() {
             transition={{ delay: 0.1 }}
             className="text-4xl lg:text-5xl font-bold leading-tight text-[var(--text-primary)] mb-5"
           >
-            {t("about.title.line1") || "Your journey deserves"}{" "}
-            <span className="text-emerald-600 dark:text-emerald-400">
-              {t("about.title.line2") || "expert hands behind it"}
+            {t("about.title.line1") || "Incorporated in 1995"}<br />
+            <span className="text-[var(--accent)]">
+              {t("about.title.line2") || "Under the leadership of Asia Khan Travels"}
             </span>
           </motion.h2>
 
@@ -80,7 +80,7 @@ function About() {
             transition={{ delay: 0.2 }}
             className="text-[var(--text-secondary)] leading-8 text-base mb-8"
           >
-            {t("about.description")}
+            {t("about.description") || "Incorporated in 1995 under the leadership of Asia Khan Travels has evolved over the years leading the travel industry due to its best ethical practices and unrivaled knowledge and is now recognized as a premium and luxury travel agency."}
           </motion.p>
 
           {/* Feature checklist */}
