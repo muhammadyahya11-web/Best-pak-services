@@ -69,7 +69,7 @@ export default function Hero() {
         </div>
 
         <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6">
-          <h3 className="text-3xl font-bold text-white">15+</h3>
+          <h3 className="text-3xl font-bold text-white">6+</h3>
           <p className="text-white/60">Years Experience</p>
         </div>
 

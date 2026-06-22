@@ -136,23 +136,10 @@ export default function Navbar() {
               <span>{isRTL ? "EN" : "AR"}</span>
             </motion.button>
 
-            {/* Search */}
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => setSearchOpen(true)}
-              className="hidden md:flex items-center justify-center w-10 h-10 rounded-full bg-[var(--bg-secondary)] hover:bg-[var(--accent)]/10 border border-[var(--border)] transition-all"
-            >
-              <Search size={18} className="text-[var(--text-secondary)]" />
-            </motion.button>
-
-            {/* CTA */}
-            <NavLink
-              to="/contact"
-              className="hidden lg:flex px-5 py-2.5 rounded-full bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white font-semibold transition shadow-lg shadow-[var(--accent)]/20"
-            >
-              Apply Now
-            </NavLink>
+            
+       
+        
+           
 
             {/* Mobile Menu */}
             <button

@@ -6,7 +6,7 @@ import { useLanguage } from "../context/LanguageContext";
 import { useNavigate } from "react-router-dom";
 
 const stats = [
-  { num: "30+", label: "Years of Excellence" },
+  { num: "6+", label: "Years of Excellence" },
   { num: "25K+", label: "Happy Clients" },
   { num: "120+", label: "Destinations" },
 ];
