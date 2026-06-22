@@ -53,10 +53,18 @@
     }
   },
   "about": {
-    "ratingText": "Trusted by 10,000+ clients",
-    "title": "Corporate Travel Made Easy",
+    "eyebrow": "About Asia Khan Travels",
+    "title": {
+      "line1": "Incorporated in",
+      "line2": "1995"
+    },
     "description": "Incorporated in 1995 under the leadership of Asia Khan Travels has evolved over the years leading the travel industry due to its best ethical practices and unrivaled knowledge and is now recognized as a premium and luxury travel agency. Their expert team crafts tailor-made itineraries, meticulously curating every aspect of the journey to exceed expectations. With the commitment to deliver excellence, it has come a long way by earning best travel agent award initially in 2000, followed every year till date. With such diligence and integrity, it has gained worldwide exposure offering best tours and packages.",
-    "button": "Learn More",
+    "button": "Our Services",
+    "stats": {
+      "0": "Years of Excellence",
+      "1": "Happy Clients",
+      "2": "Destinations"
+    },
     "features": {
       "0": {
         "title": "Our Mission",
@@ -70,6 +78,11 @@
         "title": "Core Values",
         "desc": "Credibility : We build trust with our customers by delivering on our promises, and providing reliable information and services to build a long term relationship. Innovation : We embrace innovation & stay up to date with the latest trends and technologies in the travel industry to continuously enhance our services and provide innovative travel solutions"
       }
+    },
+    "ceo": {
+      "title": "Message from Our CEO",
+      "message": "At Asia Khan Travels, we believe that travel is not just about reaching a destination, but about the journey of transformation. Since 1995, we have been committed to crafting experiences that go beyond expectations, building trust through every interaction, and setting new standards in luxury travel. Our success is measured by the smiles of our clients and the memories we create together.",
+      "name": "Asia Khan, CEO"
     }
   },
   "services": {

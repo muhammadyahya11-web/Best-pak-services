@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import about from "../assets/about-img.webp";
+import ceoImg from "../assets/Untitled.png";
 import { useTranslation } from "react-i18next";
 import { useLanguage } from "../context/LanguageContext";
 import { useNavigate } from "react-router-dom";
@@ -84,6 +85,34 @@ function About() {
             ))}
           </motion.div>
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+          className="bg-[var(--card-bg)] border border-[var(--border)] rounded-3xl p-8 lg:p-10 mb-20"
+        >
+          <div className="flex flex-col lg:flex-row items-center gap-8">
+            <img
+              src={ceoImg}
+              alt="CEO"
+              loading="lazy"
+              className="w-32 h-32 rounded-full object-cover border-4 border-emerald-500/20 flex-shrink-0"
+            />
+            <div>
+              <h3 className="text-2xl font-bold text-[var(--text-primary)] mb-3">
+                {t("about.ceo.title") || "Message from Our CEO"}
+              </h3>
+              <p className="text-[var(--text-secondary)] leading-relaxed italic">
+                {t("about.ceo.message") || "At Asia Khan Travels, we believe that travel is not just about reaching a destination, but about the journey of transformation. Since 1995, we have been committed to crafting experiences that go beyond expectations, building trust through every interaction, and setting new standards in luxury travel. Our success is measured by the smiles of our clients and the memories we create together."}
+              </p>
+              <p className="text-emerald-600 font-semibold mt-4">
+                — {t("about.ceo.name") || "Asia Khan, CEO"}
+              </p>
+            </div>
+          </div>
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}

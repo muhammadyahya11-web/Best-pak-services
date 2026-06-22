@@ -77,8 +77,7 @@ function ServiceCard({ service, index }) {
         </h3>
         <p className="text-[var(--text-secondary)] leading-relaxed text-sm mb-5">{t(`services.${service.key}Desc`)}</p>
         <motion.span whileHover={{ x: 6 }} className="inline-flex items-center gap-2 text-[var(--accent)] font-semibold text-sm group-hover:gap-3 transition-all duration-300">
-          {t("services.learnMore")}
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+          
         </motion.span>
       </div>
     </motion.div>
@@ -235,6 +234,7 @@ function Services() {
               whileHover={{ y: -8, scale: 1.02 }}
               className="group relative bg-[var(--card-bg)] rounded-[2rem] p-10 shadow-[0_2px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_30px_70px_rgba(0,0,0,0.12)] transition-all duration-500 cursor-pointer border border-[var(--border)] overflow-hidden"
             >
+               <div className="absolute top-0 right-0 w-80 h-80 bg-red-700 to-transparent rounded-full blur-2xl -translate-y-1/2 translate-x-1/2 group-hover:from-[var(--accent)]/15 transition-all duration-500" />
               <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-[var(--text-primary)]/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="relative z-10 text-center">
                 <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-[var(--text-primary)] to-[var(--text-secondary)] flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform duration-300">
@@ -267,7 +267,7 @@ function Services() {
                 <p className="text-gray-400 leading-relaxed mb-6">{t("services.latviaJobsDesc")}</p>
                 <span className="inline-flex items-center gap-2 text-[var(--accent)] font-bold text-sm tracking-wider uppercase">
                   {t("services.viewDetails")}
-                  <svg className="w-4 h-4 bg-amber-400 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                  <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
                 </span>
               </div>
               <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[var(--accent)]/60 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
