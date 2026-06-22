@@ -11,7 +11,7 @@ import Services from "./Pages/Services";
 import Contact from "./Pages/Contact";
 import Bps from "./Pages/Bps";
 import Latvia from "./Pages/Latvia";
-import SearchResults from "./Pages/SearchResults";
+
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -35,7 +35,7 @@ export default function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/bps" element={<Bps />} />
           <Route path="/latvia" element={<Latvia />} />
-          <Route path="/search" element={<SearchResults />} />
+        
         </Routes>
 
         <WhatsAppButton />
