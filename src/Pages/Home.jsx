@@ -13,7 +13,7 @@ function Home() {
   const dir = i18n.language === "ar" ? "rtl" : "ltr";
 
   return (
-    <div dir={dir} className="bg-[#fcf9f3]">
+    <div dir={dir} className="bg-[var(--bg-primary)]">
       <Hero />
       <About />
       <Features />

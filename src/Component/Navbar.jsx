@@ -1,19 +1,24 @@
-
 import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { Search, Menu, X, Globe } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useLanguage } from "../context/LanguageContext.jsx";
+import { useTheme } from "../context/ThemeContext.jsx";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
-
   const { t } = useTranslation();
   const { toggleLanguage, isRTL } = useLanguage();
+  const { theme, toggleTheme } = useTheme();
   const navigate = useNavigate();
+  const { scrollY } = useScroll();
+  const navScale = useTransform(scrollY, [0, 100], [1, 0.95]);
+  const navY = useTransform(scrollY, [0, 100], [0, -5]);
+  const logoSize = useTransform(scrollY, [0, 100], [1, 0.85]);
+  const paddingY = useTransform(scrollY, [0, 100], [16, 10]);
 
   const links = [
     { name: t("nav.home"), path: "/" },
@@ -21,22 +26,38 @@ export default function Navbar() {
     { name: t("nav.services"), path: "/services" },
     { name: t("nav.contact"), path: "/contact" },
     { name: t("bps.navLabel"), path: "/bps" },
-    { name: t("services.latviaJobs"), path: "/latvia" },
   ];
 
   const handleSearch = () => {
     if (!searchQuery.trim()) return;
-
     navigate(`/search?q=${encodeURIComponent(searchQuery)}`);
     setSearchOpen(false);
     setSearchQuery("");
   };
 
+  const getThemeIcon = () => {
+    if (theme === 'luxury') return '💎';
+    if (theme === 'dark') return '🌙';
+    return '☀️';
+  };
+
+  const getThemeLabel = () => {
+    if (theme === 'luxury') return isRTL ? 'ذهبي' : 'Gold';
+    if (theme === 'dark') return isRTL ? 'داكن' : 'Dark';
+    return isRTL ? 'فاتح' : 'Light';
+  };
+
   return (
     <>
-      <nav className="fixed top-0 left-0 w-full z-50 bg-slate-950/80 backdrop-blur-2xl border-b border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.25)]">
+      <motion.nav
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ type: "spring", stiffness: 100, damping: 20 }}
+        style={{ scale: navScale, y: navY }}
+        className="fixed top-0 left-0 w-full z-50 bg-[var(--nav-bg)] backdrop-blur-2xl border-b border-[var(--nav-border)] shadow-[0_8px_32px_rgba(0,0,0,0.25)] transition-colors duration-300"
+      >
 
-        <div className="max-w-7xl mx-auto flex items-center justify-between px-5 lg:px-8 py-4">
+        <motion.div className="max-w-7xl mx-auto flex items-center justify-between px-5 lg:px-8" style={{ paddingTop: paddingY, paddingBottom: paddingY }}>
 
           {/* Logo */}
           <NavLink to="/">
@@ -45,10 +66,11 @@ export default function Navbar() {
               animate={{ opacity: 1, y: 0 }}
               whileHover={{ scale: 1.03 }}
               transition={{ duration: 0.5 }}
-              className="text-xl md:text-2xl font-extrabold tracking-[0.18em]"
+              style={{ scale: logoSize }}
+              className="text-xl md:text-2xl font-extrabold tracking-[0.18em] origin-left"
             >
-              <span className="text-white">BEST PAK</span>
-              <span className="text-blue-500"> SERVICES</span>
+              <span className="text-[var(--text-primary)]">BEST PAK</span>
+              <span className="text-[var(--accent)]"> SERVICES</span>
             </motion.div>
           </NavLink>
 
@@ -69,8 +91,8 @@ export default function Navbar() {
                       }}
                       className={`relative inline-block transition-colors duration-300 ${
                         isActive
-                          ? "text-blue-400"
-                          : "text-gray-300 hover:text-white"
+                          ? "text-[var(--accent)]"
+                          : "text-[var(--text-secondary)] hover:text-[var(--accent)]"
                       }`}
                     >
                       {item.name}
@@ -78,7 +100,7 @@ export default function Navbar() {
                       {isActive && (
                         <motion.span
                           layoutId="nav-indicator"
-                          className="absolute left-0 -bottom-2 h-[3px] w-full rounded-full bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-500"
+                          className="absolute left-0 -bottom-2 h-[3px] w-full rounded-full bg-[var(--accent)]"
                         />
                       )}
                     </motion.span>
@@ -91,12 +113,24 @@ export default function Navbar() {
           {/* Actions */}
           <div className="flex items-center gap-3">
 
+            {/* Theme */}
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={toggleTheme}
+              className="flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--bg-secondary)] border border-[var(--border)] text-[var(--text-primary)] hover:border-[var(--accent)] transition shadow-sm"
+              title={`${getThemeLabel()} Theme`}
+            >
+              <span className="text-lg leading-none">{getThemeIcon()}</span>
+              <span className="hidden sm:inline text-sm font-medium">{getThemeLabel()}</span>
+            </motion.button>
+
             {/* Language */}
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={toggleLanguage}
-              className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-white hover:bg-white/10 transition"
+              className="flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--bg-secondary)] border border-[var(--border)] text-[var(--text-primary)] hover:border-[var(--accent)] transition shadow-sm"
             >
               <Globe size={16} />
               <span>{isRTL ? "EN" : "AR"}</span>
@@ -107,15 +141,15 @@ export default function Navbar() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setSearchOpen(true)}
-              className="hidden md:flex items-center justify-center w-10 h-10 rounded-full bg-white/5 hover:bg-blue-500/20 border border-white/10 transition-all"
+              className="hidden md:flex items-center justify-center w-10 h-10 rounded-full bg-[var(--bg-secondary)] hover:bg-[var(--accent)]/10 border border-[var(--border)] transition-all"
             >
-              <Search size={18} className="text-gray-300" />
+              <Search size={18} className="text-[var(--text-secondary)]" />
             </motion.button>
 
             {/* CTA */}
             <NavLink
               to="/contact"
-              className="hidden lg:flex px-5 py-2.5 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-semibold transition"
+              className="hidden lg:flex px-5 py-2.5 rounded-full bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white font-semibold transition shadow-lg shadow-[var(--accent)]/20"
             >
               Apply Now
             </NavLink>
@@ -123,14 +157,14 @@ export default function Navbar() {
             {/* Mobile Menu */}
             <button
               onClick={() => setOpen(true)}
-              className="lg:hidden p-2 rounded-lg hover:bg-white/10 transition"
+              className="lg:hidden p-2 rounded-lg hover:bg-[var(--bg-secondary)] transition border border-[var(--border)]"
             >
-              <Menu size={26} className="text-white" />
+              <Menu size={26} className="text-[var(--text-primary)]" />
             </button>
 
           </div>
-        </div>
-      </nav>
+        </motion.div>
+      </motion.nav>
 
       {/* Search Modal */}
       <AnimatePresence>
@@ -278,4 +312,3 @@ export default function Navbar() {
     </>
   );
 }
-

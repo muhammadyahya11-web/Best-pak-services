@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 
 export default function Footer() {
   const { t } = useTranslation();
-  
+
   const linkItems = [
     { name: t("nav.home"), path: "/" },
     { name: t("nav.about"), path: "/about" },
@@ -25,7 +25,7 @@ export default function Footer() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl font-bold text-white tracking-wide mb-2">
-            <span className="text-blue-400">BEST PAK SERVICES</span>
+            <span className="text-[var(--accent)]">BEST PAK SERVICES</span>
           </h2>
           <p className="mt-3 text-gray-400 leading-relaxed">
             {t("home.footer.brandDesc")}
@@ -58,10 +58,10 @@ export default function Footer() {
               <li key={i}>
                 <NavLink
                   to={item.path}
-                  className="flex items-center gap-2 text-gray-400 hover:text-blue-400 cursor-pointer transition-all duration-300 group"
+                  className="flex items-center gap-2 text-gray-400 hover:text-[var(--accent)] cursor-pointer transition-all duration-300 group"
                 >
                   <motion.span
-                    className="w-1.5 h-1.5 rounded-full bg-gray-600 group-hover:bg-blue-400 transition-colors duration-300"
+                    className="w-1.5 h-1.5 rounded-full bg-gray-600 group-hover:bg-[var(--accent)] transition-colors duration-300"
                   />
                   {item.name}
                 </NavLink>
@@ -82,21 +82,21 @@ export default function Footer() {
             <motion.a
               href="tel:+97444769222"
               whileHover={{ x: 5 }}
-              className="hover:text-blue-400 transition-colors duration-300 flex items-center gap-3"
+              className="hover:text-[var(--accent)] transition-colors duration-300 flex items-center gap-3"
             >
-              <span className="text-blue-400">●</span>
+              <span className="text-[var(--accent)]">●</span>
               +974 4476 9222
             </motion.a>
             <motion.a
               href="mailto:info@flymi.com"
               whileHover={{ x: 5 }}
-              className="hover:text-blue-400 transition-colors duration-300 flex items-center gap-3"
+              className="hover:text-[var(--accent)] transition-colors duration-300 flex items-center gap-3"
             >
-              <span className="text-blue-400">●</span>
+              <span className="text-[var(--accent)]">●</span>
               info@flymi.com
             </motion.a>
             <p className="text-gray-400 flex items-center gap-3">
-              <span className="text-blue-400">●</span>
+              <span className="text-[var(--accent)]">●</span>
               Alfardan Centre, Doha, Qatar
             </p>
           </div>

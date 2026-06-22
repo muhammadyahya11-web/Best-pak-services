@@ -66,12 +66,12 @@ export default function Popup() {
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.8, opacity: 0, y: 50 }}
             transition={{ type: "spring", stiffness: 300, damping: 25 }}
-            className="relative bg-white rounded-3xl shadow-2xl max-w-md w-full p-8"
+            className="relative bg-[var(--card-bg)] rounded-3xl shadow-2xl max-w-md w-full p-8 border border-[var(--border)]"
             onClick={(e) => e.stopPropagation()}
           >
             <button
               onClick={() => setIsOpen(false)}
-              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
+              className="absolute top-4 right-4 text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors"
             >
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <line x1="18" y1="6" x2="6" y2="18" />
@@ -82,13 +82,13 @@ export default function Popup() {
             {!isSubmitted ? (
               <>
                 <div className="text-center mb-6">
-                  <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="w-16 h-16 bg-[var(--accent)]/10 rounded-full flex items-center justify-center mx-auto mb-4">
                     <span className="text-3xl">✈️</span>
                   </div>
-                  <h2 className="text-2xl font-bold text-gray-900 mb-2">
+                  <h2 className="text-2xl font-bold text-[var(--text-primary)] mb-2">
                     Get Exclusive Travel Offers!
                   </h2>
-                  <p className="text-gray-600">
+                  <p className="text-[var(--text-secondary)]">
                     Subscribe to receive special deals, new packages, and travel updates.
                   </p>
                 </div>
@@ -100,7 +100,7 @@ export default function Popup() {
                     placeholder="Enter your email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+                    className="w-full px-4 py-3 rounded-xl border border-[var(--border)] bg-[var(--bg-secondary)] focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent)]/20 outline-none transition-all"
                   />
                   <input
                     type="tel"
@@ -108,19 +108,19 @@ export default function Popup() {
                     placeholder="Enter your WhatsApp number"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+                    className="w-full px-4 py-3 rounded-xl border border-[var(--border)] bg-[var(--bg-secondary)] focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent)]/20 outline-none transition-all"
                   />
                   <motion.button
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     type="submit"
-                    className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-3 rounded-xl font-semibold hover:from-blue-700 hover:to-blue-800 transition-all"
+                    className="w-full bg-gradient-to-r from-[var(--accent)] to-[var(--accent-hover)] text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all"
                   >
                     Subscribe Now
                   </motion.button>
                 </form>
 
-                <p className="text-xs text-gray-500 text-center mt-4">
+                <p className="text-xs text-[var(--text-muted)] text-center mt-4">
                   No spam. Unsubscribe anytime.
                 </p>
               </>
@@ -132,10 +132,10 @@ export default function Popup() {
                     <polyline points="22 4 12 14.01 9 11.01" />
                   </svg>
                 </div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-2">
+                <h2 className="text-2xl font-bold text-[var(--text-primary)] mb-2">
                   Thank You!
                 </h2>
-                <p className="text-gray-600">
+                <p className="text-[var(--text-secondary)]">
                   We will contact you shortly via WhatsApp/Email.
                 </p>
               </div>

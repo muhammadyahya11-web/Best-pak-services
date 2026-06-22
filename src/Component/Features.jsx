@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 import {
   ShieldCheck,
   PhoneCall,
@@ -13,90 +14,118 @@ const featuresData = [
   {
     icon: ShieldCheck,
     key: "customizedPolicy",
-    color: "text-blue-600",
-    bg: "bg-blue-50",
+    gradient: "from-blue-500 to-cyan-400",
+    glow: "bg-blue-500/20",
   },
   {
     icon: PhoneCall,
     key: "support247",
-    color: "text-emerald-600",
-    bg: "bg-emerald-50",
+    gradient: "from-emerald-500 to-teal-400",
+    glow: "bg-emerald-500/20",
   },
   {
     icon: LineChart,
     key: "reporting",
-    color: "text-purple-600",
-    bg: "bg-purple-50",
+    gradient: "from-violet-500 to-purple-400",
+    glow: "bg-violet-500/20",
   },
   {
     icon: Briefcase,
     key: "dutyOfCare",
-    color: "text-orange-600",
-    bg: "bg-orange-50",
+    gradient: "from-amber-500 to-orange-400",
+    glow: "bg-amber-500/20",
   },
   {
     icon: Globe,
     key: "globalNetwork",
-    color: "text-cyan-600",
-    bg: "bg-cyan-50",
+    gradient: "from-cyan-500 to-blue-400",
+    glow: "bg-cyan-500/20",
   },
   {
     icon: Sparkles,
     key: "innovation",
-    color: "text-violet-600",
-    bg: "bg-violet-50",
+    gradient: "from-rose-500 to-pink-400",
+    glow: "bg-rose-500/20",
   },
 ];
 
 function FeatureCard({ item, index }) {
   const { t } = useTranslation();
   const Icon = item.icon;
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
-      whileHover={{ y: -8, transition: { duration: 0.3 } }}
-      className="group relative bg-white rounded-3xl p-8 shadow-sm hover:shadow-2xl border border-gray-100 transition-all duration-500"
+      ref={ref}
+      initial={{ opacity: 0, y: 60 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.7, delay: index * 0.12, ease: [0.25, 0.46, 0.45, 0.94] }}
+      className="group relative glass-card rounded-3xl p-8 overflow-hidden"
     >
-      <div className={`w-14 h-14 ${item.bg} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-        <Icon size={28} className={item.color} />
+      {/* Hover Glow */}
+      <div className={`absolute -top-20 -right-20 w-40 h-40 ${item.glow} rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700`} />
+
+      {/* Number */}
+      <span className="absolute top-6 right-6 text-5xl font-black text-white/[0.03] group-hover:text-white/[0.06] transition-colors duration-500"
+        style={{ fontFamily: "'Outfit', sans-serif" }}
+      >
+        0{index + 1}
+      </span>
+
+      {/* Icon */}
+      <div className={`relative w-14 h-14 rounded-2xl bg-gradient-to-br ${item.gradient} flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 group-hover:shadow-xl transition-all duration-500`}>
+        <Icon size={24} className="text-white" />
       </div>
 
-      <h3 className="text-xl font-bold text-gray-900 mb-3">
+      {/* Content */}
+      <h3 className="text-xl font-bold text-[var(--text-primary)] mb-3 group-hover:text-[var(--accent)] transition-colors duration-300">
         {t(`home.features.${item.key}`)}
       </h3>
-      <p className="text-gray-500 leading-7">
+      <p className="text-[var(--text-secondary)] leading-7 text-sm">
         {t(`home.features.${item.key}Desc`)}
       </p>
+
+      {/* Bottom Accent Line */}
+      <div className="absolute bottom-0 left-0 w-full h-[2px]">
+        <div className={`h-full bg-gradient-to-r ${item.gradient} scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left`} />
+      </div>
     </motion.div>
   );
 }
 
 export default function Features() {
   const { t } = useTranslation();
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
 
   return (
-    <section className="py-28 bg-white">
-      <div className="max-w-7xl mx-auto px-8">
+    <section ref={sectionRef} className="py-32 relative overflow-hidden" style={{ background: 'var(--section-bg-alt)' }}>
+      {/* Background Decorations */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-[var(--accent)]/[0.03] rounded-full blur-[120px]" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-teal-500/[0.03] rounded-full blur-[100px]" />
+
+      <div className="max-w-7xl mx-auto px-8 relative z-10">
+        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
-          className="mb-16"
+          className="mb-20 max-w-2xl"
         >
-          <p className="text-sm font-bold uppercase tracking-[0.3em] text-blue-600 mb-3">
-            Our Features
-          </p>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 max-w-4xl leading-tight">
+          <div className="flex items-center gap-3 mb-5">
+            <div className="section-divider" />
+            <p className="text-sm font-bold uppercase tracking-[0.3em] text-[var(--accent)]">
+              Our Features
+            </p>
+          </div>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[var(--text-primary)] leading-[1.1]">
             {t("home.featuresTitle")}
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Features Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {featuresData.map((item, index) => (
             <FeatureCard key={item.key} item={item} index={index} />
           ))}

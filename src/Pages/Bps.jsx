@@ -35,18 +35,18 @@ function Bps() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#fcf9f3]">
+    <div className="min-h-screen bg-[var(--bg-primary)] transition-colors duration-300">
       <section className="relative pt-40 pb-28 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-gray-900 to-slate-950" />
-        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-80 h-80 bg-purple-500/20 rounded-full blur-3xl" />
+        <div className="absolute inset-0 bg-[var(--hero-bg)]" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--accent)]/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-blue-500/20 rounded-full blur-3xl" />
 
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-sm font-bold uppercase tracking-[0.3em] text-blue-300 mb-4"
+            className="text-sm font-bold uppercase tracking-[0.3em] text-[var(--accent)] mb-4"
           >
             BPS
           </motion.p>
@@ -69,7 +69,7 @@ function Bps() {
         </div>
       </section>
 
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-[var(--card-bg)] transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -77,7 +77,7 @@ function Bps() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-[var(--text-primary)] mb-4">
               {t("bps.sectorsTitle")}
             </h2>
           </motion.div>
@@ -91,12 +91,12 @@ function Bps() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
                 whileHover={{ y: -8, scale: 1.03 }}
-                className="group bg-gradient-to-br from-blue-50 to-white rounded-3xl p-8 shadow-lg text-center border border-blue-100 transition-all duration-300"
+                className="group bg-[var(--bg-tertiary)] rounded-3xl p-8 shadow-lg text-center border border-[var(--border)] transition-all duration-300"
               >
                 <div className="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">
                   {sector.icon}
                 </div>
-                <h3 className="font-bold text-gray-900 text-lg">
+                <h3 className="font-bold text-[var(--text-primary)] text-lg">
                   {t(`bps.sectors.${sector.key}`)}
                 </h3>
               </motion.div>
@@ -105,7 +105,7 @@ function Bps() {
         </div>
       </section>
 
-      <section className="py-24 bg-gradient-to-b from-[#f5f3ef] to-white">
+      <section className="py-24 bg-[var(--section-bg-alt)] transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -113,7 +113,7 @@ function Bps() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-[var(--text-primary)] mb-4">
               {t("bps.advantagesTitle")}
             </h2>
           </motion.div>
@@ -127,10 +127,10 @@ function Bps() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
                 whileHover={{ y: -8, scale: 1.03 }}
-                className="group bg-white rounded-3xl p-8 shadow-lg text-center border border-gray-100"
+                className="group bg-[var(--card-bg)] rounded-3xl p-8 shadow-lg text-center border border-[var(--border)]"
               >
                 <div className="text-4xl mb-4">{adv.icon}</div>
-                <p className="text-gray-700 font-medium">
+                <p className="text-[var(--text-secondary)] font-medium">
                   {t(`bps.advantages.${adv.key}`)}
                 </p>
               </motion.div>
@@ -139,7 +139,7 @@ function Bps() {
         </div>
       </section>
 
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-[var(--card-bg)] transition-colors duration-300">
         <div className="max-w-5xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -147,7 +147,7 @@ function Bps() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-[var(--text-primary)] mb-4">
               {t("bps.salaryTitle")}
             </h2>
           </motion.div>
@@ -160,10 +160,10 @@ function Bps() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="flex flex-col md:flex-row items-center bg-gradient-to-r from-blue-50 to-white rounded-3xl p-10 shadow-xl border border-blue-100 group"
+                className="flex flex-col md:flex-row items-center bg-[var(--bg-tertiary)] rounded-3xl p-10 shadow-xl border border-[var(--accent)]/10 group"
               >
                 <div className="flex-1 text-center md:text-left mb-4 md:mb-0">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                  <h3 className="text-2xl font-bold text-[var(--text-primary)] mb-2">
                     {t(`bps.salaryLevels.${level.key}`)}
                   </h3>
                 </div>
@@ -178,7 +178,7 @@ function Bps() {
         </div>
       </section>
 
-      <section className="py-24 bg-gradient-to-b from-white to-[#f5f3ef]">
+      <section className="py-24 bg-[var(--section-bg-alt)] transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -186,7 +186,7 @@ function Bps() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-[var(--text-primary)] mb-4">
               {t("bps.benefitsTitle")}
             </h2>
           </motion.div>
@@ -200,12 +200,12 @@ function Bps() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
                 whileHover={{ scale: 1.05, y: -5 }}
-                className="group bg-white rounded-3xl p-8 shadow-lg text-center border border-gray-100"
+                className="group bg-[var(--card-bg)] rounded-3xl p-8 shadow-lg text-center border border-[var(--border)]"
               >
                 <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
                   {benefit.icon}
                 </div>
-                <h3 className="font-bold text-gray-900 text-lg">
+                <h3 className="font-bold text-[var(--text-primary)] text-lg">
                   {t(`bps.benefits.${benefit.key}`)}
                 </h3>
               </motion.div>
@@ -214,15 +214,19 @@ function Bps() {
         </div>
       </section>
 
-      <section className="py-24 bg-gradient-to-br from-slate-950 via-gray-900 to-slate-950 text-white">
-        <div className="max-w-4xl mx-auto px-6 text-center">
+      <section className="py-24 bg-[var(--hero-bg)] relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-gray-900 to-slate-950" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--accent)]/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-purple-500/20 rounded-full blur-3xl" />
+
+        <div className="relative max-w-4xl mx-auto px-6 text-center text-white">
           <div className="grid md:grid-cols-2 gap-12 mb-12">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h3 className="text-xl font-semibold text-blue-300 mb-3">
+              <h3 className="text-xl font-semibold text-[var(--accent)] mb-3">
                 {t("bps.processingTitle")}
               </h3>
               <p className="text-3xl font-bold text-gradient-blue">
@@ -236,7 +240,7 @@ function Bps() {
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
             >
-              <h3 className="text-xl font-semibold text-blue-300 mb-3">
+              <h3 className="text-xl font-semibold text-[var(--accent)] mb-3">
                 {t("bps.costTitle")}
               </h3>
               <p className="text-3xl font-bold text-yellow-400">
@@ -252,7 +256,7 @@ function Bps() {
             transition={{ delay: 0.2 }}
             className="mb-8"
           >
-            <h3 className="text-xl font-semibold text-blue-300 mb-3">
+            <h3 className="text-xl font-semibold text-[var(--accent)] mb-3">
               {t("bps.paymentTitle")}
             </h3>
             <p className="text-2xl font-bold text-gradient-blue">

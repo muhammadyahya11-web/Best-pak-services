@@ -55,9 +55,9 @@ function Contact() {
   };
 
   return (
-    <main className="bg-[#FCF9F3]" dir={isRTL ? "rtl" : "ltr"}>
+    <main className="bg-[var(--bg-primary)] transition-colors duration-300" dir={isRTL ? "rtl" : "ltr"}>
       <section className="relative bg-slate-950 py-24 text-white overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--accent)]/20 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-80 h-80 bg-purple-500/20 rounded-full blur-3xl" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12">
@@ -96,25 +96,25 @@ function Contact() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="rounded-[2rem] bg-white p-8 shadow-xl shadow-slate-900/10"
+          className="rounded-[2rem] bg-[var(--card-bg)] p-8 shadow-xl shadow-slate-900/10 border border-[var(--border)]"
         >
-          <h2 className="font-serif text-3xl font-semibold text-slate-950">
+          <h2 className="font-serif text-3xl font-semibold text-[var(--text-primary)]">
             {t("contact.getInTouch")}
           </h2>
-          <p className="mt-4 leading-7 text-slate-600">
+          <p className="mt-4 leading-7 text-[var(--text-secondary)]">
             {t("contact.getInTouchDesc")}
           </p>
           <div className="mt-8 space-y-5">
             <motion.a
               href="tel:+97444769222"
               whileHover={{ x: isRTL ? -5 : 5 }}
-              className="flex items-center gap-4 text-slate-700 hover:text-sky-700 transition-all duration-300"
+              className="flex items-center gap-4 text-[var(--text-secondary)] hover:text-sky-700 transition-all duration-300"
             >
               <div className="w-12 h-12 rounded-full bg-sky-50 flex items-center justify-center shrink-0">
                 <Phone className="text-sky-700" size={20} />
               </div>
               <div>
-                <p className="text-xs text-gray-500 uppercase tracking-wider">
+                <p className="text-xs text-[var(--text-muted)] uppercase tracking-wider">
                   {t("contact.phone")}
                 </p>
                 <p className="font-semibold">+974 4476 9222</p>
@@ -124,13 +124,13 @@ function Contact() {
             <motion.a
               href="mailto:info@flymi.com"
               whileHover={{ x: isRTL ? -5 : 5 }}
-              className="flex items-center gap-4 text-slate-700 hover:text-sky-700 transition-all duration-300"
+              className="flex items-center gap-4 text-[var(--text-secondary)] hover:text-sky-700 transition-all duration-300"
             >
               <div className="w-12 h-12 rounded-full bg-sky-50 flex items-center justify-center shrink-0">
                 <Mail className="text-sky-700" size={20} />
               </div>
               <div>
-                <p className="text-xs text-gray-500 uppercase tracking-wider">
+                <p className="text-xs text-[var(--text-muted)] uppercase tracking-wider">
                   {t("contact.email")}
                 </p>
                 <p className="font-semibold">info@flymi.com</p>
@@ -140,13 +140,13 @@ function Contact() {
             <motion.a
               href="https://maps.google.com/?q=Alfardan%20Centre%20Doha"
               whileHover={{ x: isRTL ? -5 : 5 }}
-              className="flex items-start gap-4 text-slate-700 hover:text-sky-700 transition-all duration-300"
+              className="flex items-start gap-4 text-[var(--text-secondary)] hover:text-sky-700 transition-all duration-300"
             >
               <div className="w-12 h-12 rounded-full bg-sky-50 flex items-center justify-center shrink-0">
                 <MapPin className="text-sky-700" size={20} />
               </div>
               <div>
-                <p className="text-xs text-gray-500 uppercase tracking-wider">
+                <p className="text-xs text-[var(--text-muted)] uppercase tracking-wider">
                   {t("contact.address")}
                 </p>
                 <p className="font-semibold">{t("contact.addressValue")}</p>
@@ -174,9 +174,9 @@ function Contact() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="rounded-[2rem] bg-white p-8 shadow-xl shadow-slate-900/10"
+          className="rounded-[2rem] bg-[var(--card-bg)] p-8 shadow-xl shadow-slate-900/10 border border-[var(--border)]"
         >
-          <h3 className="font-serif text-2xl font-semibold text-slate-950 mb-6">
+          <h3 className="font-serif text-2xl font-semibold text-[var(--text-primary)] mb-6">
             {t("contact.getInTouch")}
           </h3>
 
@@ -184,7 +184,7 @@ function Contact() {
             <div className="grid gap-5 md:grid-cols-2">
               <div>
                 <label className="block">
-                  <span className="text-sm font-bold text-slate-700">
+                  <span className="text-sm font-bold text-[var(--text-primary)]">
                     {t("contact.form.name")}
                   </span>
                   <input
@@ -192,7 +192,7 @@ function Contact() {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none transition-all duration-300 focus:border-sky-700 focus:bg-white focus:ring-2 focus:ring-sky-700/10"
+                    className="mt-2 w-full rounded-2xl border border-[var(--border)] bg-[var(--bg-secondary)] px-4 py-3 outline-none transition-all duration-300 focus:border-sky-700 focus:bg-[var(--card-bg)] focus:ring-2 focus:ring-sky-700/10"
                     type="text"
                     placeholder={isRTL ? "اسمك" : "Your name"}
                   />
@@ -200,7 +200,7 @@ function Contact() {
               </div>
               <div>
                 <label className="block">
-                  <span className="text-sm font-bold text-slate-700">
+                  <span className="text-sm font-bold text-[var(--text-primary)]">
                     {t("contact.form.email")}
                   </span>
                   <input
@@ -208,7 +208,7 @@ function Contact() {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none transition-all duration-300 focus:border-sky-700 focus:bg-white focus:ring-2 focus:ring-sky-700/10"
+                    className="mt-2 w-full rounded-2xl border border-[var(--border)] bg-[var(--bg-secondary)] px-4 py-3 outline-none transition-all duration-300 focus:border-sky-700 focus:bg-[var(--card-bg)] focus:ring-2 focus:ring-sky-700/10"
                     type="email"
                     placeholder={isRTL ? "بريدك الإلكتروني" : "you@example.com"}
                   />
@@ -218,14 +218,14 @@ function Contact() {
 
             <div>
               <label className="block">
-                <span className="text-sm font-bold text-slate-700">
+                <span className="text-sm font-bold text-[var(--text-primary)]">
                   {t("contact.form.travelRequirement")}
                 </span>
-                <select 
+                <select
                   name="travelRequirement"
                   value={formData.travelRequirement}
                   onChange={handleChange}
-                  className="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none transition-all duration-300 focus:border-sky-700 focus:bg-white focus:ring-2 focus:ring-sky-700/10"
+                  className="mt-2 w-full rounded-2xl border border-[var(--border)] bg-[var(--bg-secondary)] px-4 py-3 outline-none transition-all duration-300 focus:border-sky-700 focus:bg-[var(--card-bg)] focus:ring-2 focus:ring-sky-700/10"
                 >
                   <option value="">{t("contact.form.requirements.select")}</option>
                   <option>{t("contact.form.requirements.corporate")}</option>
@@ -239,7 +239,7 @@ function Contact() {
 
             <div>
               <label className="block">
-                <span className="text-sm font-bold text-slate-700">
+                <span className="text-sm font-bold text-[var(--text-primary)]">
                   {t("contact.form.message")}
                 </span>
                 <textarea
@@ -248,7 +248,7 @@ function Contact() {
                   value={formData.message}
                   onChange={handleChange}
                   rows="5"
-                  className="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none transition-all duration-300 focus:border-sky-700 focus:bg-white focus:ring-2 focus:ring-sky-700/10 resize-none"
+                  className="mt-2 w-full rounded-2xl border border-[var(--border)] bg-[var(--bg-secondary)] px-4 py-3 outline-none transition-all duration-300 focus:border-sky-700 focus:bg-[var(--card-bg)] focus:ring-2 focus:ring-sky-700/10 resize-none"
                   placeholder={
                     isRTL
                       ? "أخبرنا عن رحلتك..."
