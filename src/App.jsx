@@ -5,12 +5,12 @@ import { useEffect } from "react";
 import Navbar from "./Component/Navbar";
 import WhatsAppButton from "./Component/WhatsAppButton";
 import Popup from "./Component/Popup";
+import CustomCursor from "./Component/CustomCursor";
 import Home from "./Pages/Home";
 import About from "./Pages/About";
 import Services from "./Pages/Services";
 import Contact from "./Pages/Contact";
-import Bps from "./Pages/Bps";
-import Latvia from "./Pages/Latvia";
+import WhyBestPakServices from "./Pages/WhyBestPakServices";
 
 
 function ScrollToTop() {
@@ -25,6 +25,7 @@ export default function App() {
   return (
     <ThemeProvider>
       <LanguageProvider>
+        <CustomCursor />
         <Navbar />
         <Popup />
         <ScrollToTop />
@@ -33,9 +34,7 @@ export default function App() {
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/bps" element={<Bps />} />
-          <Route path="/latvia" element={<Latvia />} />
-        
+          <Route path="/whybestpakservices" element={<WhyBestPakServices />} />
         </Routes>
 
         <WhatsAppButton />

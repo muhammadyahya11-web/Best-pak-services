@@ -7,7 +7,6 @@ import Features from "../Component/Features";
 import CTA from "../Component/Cta";
 import Footer from "./../Component/Footer";
 import Commitment from "../Component/Commitment";
-import Testimonial from "../Component/Testamonial";
 
 function Home() {
   const { i18n } = useTranslation();
@@ -23,17 +22,8 @@ function Home() {
         <Hero />
       </motion.div>
 
-      <motion.div style={{ y: aboutY }} className="relative z-20 -mt-32">
+      <motion.div style={{ y: aboutY }} className="relative z-20 -mt-24 sm:-mt-28 md:-mt-32">
         <About />
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.7 }}
-      >
-        <Features />
       </motion.div>
 
       <motion.div
@@ -60,7 +50,7 @@ function Home() {
         viewport={{ once: true }}
         transition={{ duration: 0.7, delay: 0.3 }}
       >
-        <Testimonial />
+        <Features />
       </motion.div>
 
       <motion.div

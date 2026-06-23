@@ -1,296 +1,140 @@
 import { useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
-import { Search, Menu, X, Globe } from "lucide-react";
+import { Menu, Globe, Phone, Mail } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useLanguage } from "../context/LanguageContext.jsx";
-import { useTheme } from "../context/ThemeContext.jsx";
+import qatarLogo from "../assets/qatar-logo.png";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const [searchOpen, setSearchOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
+
   const { t } = useTranslation();
   const { toggleLanguage, isRTL } = useLanguage();
-  const { theme, toggleTheme } = useTheme();
-  const navigate = useNavigate();
+
   const { scrollY } = useScroll();
-  const navScale = useTransform(scrollY, [0, 100], [1, 0.95]);
-  const navY = useTransform(scrollY, [0, 100], [0, -5]);
-  const logoSize = useTransform(scrollY, [0, 100], [1, 0.85]);
-  const paddingY = useTransform(scrollY, [0, 100], [16, 10]);
+  const navY = useTransform(scrollY, [0, 120], [0, -8]);
+  const navScale = useTransform(scrollY, [0, 120], [1, 0.96]);
 
   const links = [
     { name: t("nav.home"), path: "/" },
     { name: t("nav.about"), path: "/about" },
+    { name: t("whyBestPak.title"), path: "/whybestpakservices" },
     { name: t("nav.services"), path: "/services" },
     { name: t("nav.contact"), path: "/contact" },
-    { name: t("bps.navLabel"), path: "/bps" },
   ];
-
-  const handleSearch = () => {
-    if (!searchQuery.trim()) return;
-    navigate(`/search?q=${encodeURIComponent(searchQuery)}`);
-    setSearchOpen(false);
-    setSearchQuery("");
-  };
-
-  const getThemeIcon = () => {
-    if (theme === 'luxury') return '💎';
-    if (theme === 'dark') return '🌙';
-    return '☀️';
-  };
-
-  const getThemeLabel = () => {
-    if (theme === 'luxury') return isRTL ? 'ذهبي' : 'Gold';
-    if (theme === 'dark') return isRTL ? 'داكن' : 'Dark';
-    return isRTL ? 'فاتح' : 'Light';
-  };
 
   return (
     <>
+      {/* ✨ TOP BAR - Visible on all devices */}
+      <div className="fixed top-0 left-0 w-full z-[1000] bg-[var(--bg-secondary)]/95 backdrop-blur-xl border-b border-[var(--border)] text-[var(--text-secondary)] text-xs sm:text-sm">
+        <div className="flex flex-col sm:flex-row justify-between items-center h-auto sm:h-14 lg:h-16 px-4 sm:px-6 lg:px-8 py-2 sm:py-0 gap-2 sm:gap-0">
+          <div className="flex items-center gap-3 sm:gap-6">
+            <img src={qatarLogo} className="h-8 sm:h-10 opacity-90" />
+            <span className="text-[10px] sm:text-xs lg:text-sm">Commercial Registration: 238052</span>
+          </div>
+
+          <div className="flex items-center gap-3 sm:gap-6 text-[10px] sm:text-xs lg:text-sm">
+            <a href="tel:+9745464665" className="flex items-center gap-1.5 hover:text-[var(--accent)] transition">
+              <Phone size={12} className="sm:hidden" />
+              <Phone size={14} className="hidden sm:block" />
+              <span>+974 5464 665</span>
+            </a>
+            <a href="mailto:info@bestpakservices.com" className="flex items-center gap-1.5 hover:text-[var(--accent)] transition">
+              <Mail size={12} className="sm:hidden" />
+              <Mail size={14} className="hidden sm:block" />
+              <span className="hidden xs:inline">info@bestpakservices.com</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* 💎 NAVBAR */}
       <motion.nav
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ type: "spring", stiffness: 100, damping: 20 }}
-        style={{ scale: navScale, y: navY }}
-        className="fixed top-0 left-0 w-full z-50 bg-[var(--nav-bg)] backdrop-blur-2xl border-b border-[var(--nav-border)] shadow-[0_8px_32px_rgba(0,0,0,0.25)] transition-colors duration-300"
+        style={{ y: navY, scale: navScale }}
+        className="fixed top-14 sm:top-16 lg:top-[3.5rem] left-0 w-screen z-[999] bg-[var(--bg-secondary)]/90 backdrop-blur-2xl border-b border-[var(--border)]"
       >
-
-        <motion.div className="max-w-7xl mx-auto flex items-center justify-between px-5 lg:px-8" style={{ paddingTop: paddingY, paddingBottom: paddingY }}>
-
-          {/* Logo */}
+        <div className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
+          {/* LOGO */}
           <NavLink to="/">
-            <motion.div
-              initial={{ opacity: 0, y: -15 }}
-              animate={{ opacity: 1, y: 0 }}
-              whileHover={{ scale: 1.03 }}
-              transition={{ duration: 0.5 }}
-              style={{ scale: logoSize }}
-              className="text-xl md:text-2xl font-extrabold tracking-[0.18em] origin-left"
-            >
-              <span className="text-[var(--text-primary)]">BEST PAK</span>
-              <span className="text-[var(--accent)]"> SERVICES</span>
-            </motion.div>
+            <div className="text-base sm:text-lg lg:text-xl tracking-[0.15em] sm:tracking-[0.2em] lg:tracking-[0.35em] font-light text-white">
+              BEST <span className="text-[var(--accent)] font-medium">PAK</span> SERVICES
+            </div>
           </NavLink>
 
-          {/* Desktop Navigation */}
-          <ul className="hidden lg:flex items-center gap-8 text-sm font-medium">
+          {/* LINKS */}
+          <ul className="hidden lg:flex gap-8 xl:gap-10 text-sm tracking-wide text-[var(--text-secondary)]">
             {links.map((item) => (
               <li key={item.path}>
-                <NavLink to={item.path}>
-                  {({ isActive }) => (
-                    <motion.span
-                      whileHover={{
-                        y: -3,
-                        scale: 1.05,
-                      }}
-                      transition={{
-                        type: "spring",
-                        stiffness: 300,
-                      }}
-                      className={`relative inline-block transition-colors duration-300 ${
-                        isActive
-                          ? "text-[var(--accent)]"
-                          : "text-[var(--text-secondary)] hover:text-[var(--accent)]"
-                      }`}
-                    >
-                      {item.name}
-
-                      {isActive && (
-                        <motion.span
-                          layoutId="nav-indicator"
-                          className="absolute left-0 -bottom-2 h-[3px] w-full rounded-full bg-[var(--accent)]"
-                        />
-                      )}
-                    </motion.span>
-                  )}
+                <NavLink
+                  to={item.path}
+                  className={({ isActive }) =>
+                    `transition duration-300 hover:text-[var(--accent)] ${
+                      isActive ? "text-[var(--accent)]" : ""
+                    }`
+                  }
+                >
+                  {item.name}
                 </NavLink>
               </li>
             ))}
           </ul>
 
-          {/* Actions */}
-          <div className="flex items-center gap-3">
-
-            {/* Theme */}
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={toggleTheme}
-              className="flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--bg-secondary)] border border-[var(--border)] text-[var(--text-primary)] hover:border-[var(--accent)] transition shadow-sm"
-              title={`${getThemeLabel()} Theme`}
-            >
-              <span className="text-lg leading-none">{getThemeIcon()}</span>
-              <span className="hidden sm:inline text-sm font-medium">{getThemeLabel()}</span>
-            </motion.button>
-
-            {/* Language */}
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={toggleLanguage}
-              className="flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--bg-secondary)] border border-[var(--border)] text-[var(--text-primary)] hover:border-[var(--accent)] transition shadow-sm"
-            >
-              <Globe size={16} />
-              <span>{isRTL ? "EN" : "AR"}</span>
-            </motion.button>
-
-            
-       
-        
-           
-
-            {/* Mobile Menu */}
+          {/* ACTIONS */}
+          <div className="flex items-center gap-2 sm:gap-3">
+            {/* LANGUAGE */}
             <button
-              onClick={() => setOpen(true)}
-              className="lg:hidden p-2 rounded-lg hover:bg-[var(--bg-secondary)] transition border border-[var(--border)]"
+              onClick={toggleLanguage}
+              className="px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-full border border-[var(--border)] text-[var(--text-secondary)] hover:text-[var(--accent)] font-medium text-[10px] sm:text-xs lg:text-sm"
             >
-              <Menu size={26} className="text-[var(--text-primary)]" />
+              <Globe size={12} className="inline mr-1 sm:mr-1.5" />
+              {isRTL ? "EN" : "AR"}
             </button>
 
+            {/* MOBILE MENU */}
+            <button 
+              onClick={() => setOpen(true)} 
+              className="lg:hidden px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-full border border-[var(--border)] hover:border-[var(--accent)] transition"
+            >
+              <Menu className="text-white w-4 h-4 sm:w-5 sm:h-5" />
+            </button>
           </div>
-        </motion.div>
+        </div>
       </motion.nav>
 
-      {/* Search Modal */}
-      <AnimatePresence>
-        {searchOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setSearchOpen(false)}
-            className="fixed inset-0 bg-black/80 backdrop-blur-md z-[9999] flex items-center justify-center p-4"
-          >
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0, y: 30 }}
-              animate={{ scale: 1, opacity: 1, y: 0 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              onClick={(e) => e.stopPropagation()}
-              className="w-full max-w-lg rounded-3xl border border-white/10 bg-slate-900 p-6 shadow-2xl"
-            >
-              <div className="flex items-center justify-between mb-5">
-                <h3 className="text-xl font-bold text-white">
-                  {isRTL ? "بحث" : "Search"}
-                </h3>
-
-                <button
-                  onClick={() => setSearchOpen(false)}
-                  className="p-2 rounded-lg hover:bg-white/10"
-                >
-                  <X className="text-white" size={20} />
-                </button>
-              </div>
-
-              <div className="flex gap-2">
-                <input
-                  type="text"
-                  autoFocus
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  onKeyDown={(e) =>
-                    e.key === "Enter" && handleSearch()
-                  }
-                  placeholder={
-                    isRTL
-                      ? "ابحث هنا..."
-                      : "Search jobs, countries, services..."
-                  }
-                  className="flex-1 px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-400 outline-none focus:border-blue-500"
-                />
-
-                <button
-                  onClick={handleSearch}
-                  className="px-5 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold"
-                >
-                  Go
-                </button>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* Mobile Sidebar */}
+      {/* 📱 MOBILE MENU */}
       <AnimatePresence>
         {open && (
           <>
-            {/* Overlay */}
             <motion.div
+              className="fixed inset-0 bg-black/70 z-[9998]"
+              onClick={() => setOpen(false)}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              onClick={() => setOpen(false)}
-              className="fixed inset-0 bg-black/70 backdrop-blur-sm z-[9998]"
             />
 
-            {/* Sidebar */}
             <motion.div
+              className="fixed right-0 top-0 h-full w-[280px] sm:w-[320px] bg-[var(--bg-secondary)]/95 backdrop-blur-2xl z-[9999] p-6 sm:p-10"
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
-              transition={{
-                type: "spring",
-                stiffness: 180,
-                damping: 24,
-              }}
-              className="fixed inset-0 bg-slate-950/95 backdrop-blur-2xl z-[9999] flex flex-col p-8"
             >
-              {/* Header */}
-              <div className="flex items-center justify-between">
-                <h2 className="text-white text-lg font-bold tracking-[0.3em]">
-                  MENU
-                </h2>
+              <h2 className="text-[var(--accent)] tracking-[0.3em] mb-8 sm:mb-10 text-sm font-bold">
+                NAVIGATION
+              </h2>
 
-                <button
-                  onClick={() => setOpen(false)}
-                  className="p-2 rounded-lg hover:bg-white/10"
-                >
-                  <X size={24} className="text-white" />
-                </button>
-              </div>
-
-              {/* Navigation */}
-              <div className="flex-1 flex flex-col items-center justify-center gap-8">
-
-                {links.map((item, index) => (
-                  <motion.div
+              <div className="flex flex-col gap-5 sm:gap-6 text-[var(--text-secondary)]">
+                {links.map((item) => (
+                  <NavLink
                     key={item.path}
-                    initial={{ opacity: 0, x: 60 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{
-                      delay: index * 0.08,
-                    }}
+                    to={item.path}
+                    onClick={() => setOpen(false)}
+                    className="hover:text-[var(--accent)] transition text-base sm:text-lg font-medium"
                   >
-                    <NavLink
-                      to={item.path}
-                      onClick={() => setOpen(false)}
-                      className={({ isActive }) =>
-                        `text-2xl font-semibold tracking-wide transition ${
-                          isActive
-                            ? "text-blue-400"
-                            : "text-white hover:text-blue-400"
-                        }`
-                      }
-                    >
-                      {item.name}
-                    </NavLink>
-                  </motion.div>
+                    {item.name}
+                  </NavLink>
                 ))}
-
-                <NavLink
-                  to="/contact"
-                  onClick={() => setOpen(false)}
-                  className="mt-6 px-8 py-3 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-semibold"
-                >
-                  Apply Now
-                </NavLink>
-              </div>
-
-              {/* Footer */}
-              <div className="text-center text-gray-500 text-sm">
-                BEST PAK SERVICES © {new Date().getFullYear()}
               </div>
             </motion.div>
           </>

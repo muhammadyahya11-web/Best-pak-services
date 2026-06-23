@@ -35,14 +35,6 @@
     },
     "commitmentTitle": "Our Commitment To Excellence",
     "commitmentDesc": "We provide exceptional travel services, personalized support and innovative solutions. Our team is dedicated to making every journey seamless and memorable, combining industry expertise with genuine care for our clients' experience.",
-    "testimonialsTitle": "What Our Clients Say",
-    "testimonialsSubtitle": "Testimonials",
-    "stats": {
-      "yearsExperience": "Years Experience",
-      "happyTravelers": "Happy Travelers",
-      "destinations": "Destinations",
-      "clientRating": "Client Rating"
-    },
     "ctaTitle": "Need Help Planning Your Journey?",
     "ctaDesc": "Our experts are ready to guide you with personalized solutions and professional support tailored just for you.",
     "ctaButton": "CONTACT US",
@@ -52,13 +44,35 @@
       "contact": "Contact"
     }
   },
+  "whyBestPak": {
+    "title": "Why Choose Best Pak Services",
+    "subtitle": "Discover what makes us the leading travel agency in Qatar and beyond. Our commitment to excellence ensures every journey is seamless and memorable.",
+    "features": {
+      "customizedPolicy": "Customized Policy",
+      "customizedPolicyDesc": "Tailored corporate travel policies that align with your organization's needs and budget.",
+      "support247": "24/7 Support",
+      "support247Desc": "Round-the-clock assistance for all your travel needs, anywhere in the world.",
+      "reporting": "Reporting",
+      "reportingDesc": "Detailed analytics and reports to track spending and optimize travel expenses.",
+      "dutyOfCare": "Duty Of Care",
+      "dutyOfCareDesc": "Comprehensive duty of care programs ensuring traveler safety and well-being.",
+      "globalNetwork": "Global Network",
+      "globalNetworkDesc": "Extensive worldwide partnerships ensuring seamless travel across borders.",
+      "innovation": "Innovation",
+      "innovationDesc": "Cutting-edge technology solutions that streamline the entire travel experience."
+    },
+    "achievements": {
+      "title": "Our Achievements",
+      "subtitle": "Recognitions and milestones that define our excellence in travel services"
+    }
+  },
   "about": {
     "eyebrow": "About Asia Khan Travels",
     "title": {
-      "line1": "Incorporated in",
-      "line2": "1995"
+  
+      "line2": "About"
     },
-    "description": "Incorporated in 1995 under the leadership of Asia Khan Travels has evolved over the years leading the travel industry due to its best ethical practices and unrivaled knowledge and is now recognized as a premium and luxury travel agency. Their expert team crafts tailor-made itineraries, meticulously curating every aspect of the journey to exceed expectations. With the commitment to deliver excellence, it has come a long way by earning best travel agent award initially in 2000, followed every year till date. With such diligence and integrity, it has gained worldwide exposure offering best tours and packages.",
+    "description": "corporated in 2020 under the leadership of Ms. Aasia Khan Malezai, Best Pak Services has evolved over the years leading the travel industry due to its best ethical practices and unrivaled knowledge and is now recognized as a premium and luxury travel service company. Their expert team crafts tailor-made itineraries, meticulously curating every aspect of the journey to exceed expectations. With the commitment to deliver excellence, it has come a long way by earning best travel agent award initially in 2025, followed every year till date. With such diligence and integrity, it has gained worldwide exposure offering best tours and packages.",
     "button": "Our Services",
     "stats": {
       "0": "Years of Excellence",
@@ -76,13 +90,16 @@
       },
       "2": {
         "title": "Core Values",
-        "desc": "Credibility : We build trust with our customers by delivering on our promises, and providing reliable information and services to build a long term relationship. Innovation : We embrace innovation & stay up to date with the latest trends and technologies in the travel industry to continuously enhance our services and provide innovative travel solutions"
+        "title1": "Credibility",
+        "desc1": "We build trust with our customers by delivering on our promises, and providing reliable information and services to build a long term relationship.",
+        "title2": "Innovation",
+        "desc2": "We embrace innovation & stay up to date with the latest trends and technologies in the travel industry to continuously enhance our services and provide innovative travel solutions."
       }
     },
     "ceo": {
       "title": "Message from Our CEO",
-      "message": "At Asia Khan Travels, we believe that travel is not just about reaching a destination, but about the journey of transformation. Since 1995, we have been committed to crafting experiences that go beyond expectations, building trust through every interaction, and setting new standards in luxury travel. Our success is measured by the smiles of our clients and the memories we create together.",
-      "name": "Asia Khan, CEO"
+      "message": "My purpose since the start was to build a company based on shared values and ethical practices. We focused on 'what we do the best' and achieved several milestones over the years. Our persistence to work with impact and thus together with our shared values, we are able to reach where we stand today as a successful and one of the top performing travel service providing company in the world. We are extremely grateful to our employees, clients, and supporters in our business area for their constant trust in Best Pak Services.",
+      "name": "Aasia khan Malezai, CEO - Best Pak Services W.L.L"
     }
   },
   "services": {
@@ -91,14 +108,6 @@
     "whatWeDo": "What We Do",
     "worldwideCoverage": "Worldwide Coverage",
     "learnMore": "Learn more",
-    "whyChooseUs": "Why Choose Us",
-    "whyChooseUsDesc": "We deliver exceptional service backed by years of industry expertise and a commitment to your satisfaction.",
-    "jobOpportunities": "Overseas Job Opportunities",
-    "jobOpportunitiesDesc": "Build your career internationally with our placement services in Europe",
-    "luxembourgJobs": "Luxembourg Jobs",
-    "luxembourgJobsDesc": "Work in Europe's richest economy with legal work permits and high salaries",
-    "latviaJobs": "Latvia Jobs",
-    "latviaJobsDesc": "European career opportunities with fast processing and secure environment",
     "viewDetails": "View Details",
     "visaSectionTitle": "Tourist Services & Visit Visas",
     "visaSectionDesc": "We provide complete tourist services for the following countries including visa processing, air tickets, transport, hotels, and tourist events",
@@ -119,25 +128,31 @@
       "japan": "Japan",
       "kyrgyzstan": "Kyrgyzstan",
       "southAfrica": "South Africa",
+      "unitedKingdom": "United Kingdom",
+      "newZealand": "New Zealand",
+      "morocco": "Morocco",
+      "georgia": "Georgia",
       "schengen": "All Schengen Countries"
     },
     "airCharterTitle": "Air Charter",
     "airCharterDesc": "Private and charter flight services tailored to your schedule and preferences.",
     "flightsTitle": "Flights",
-    "flightsDesc": "Domestic and international flight bookings at competitive rates with all major airlines.",
+    "flightsDesc": "Hassle-free bookings and competitive fares for domestic and international flights.",
     "visaServicesTitle": "Visa Services",
-    "visaServicesDesc": "Complete visa processing and assistance for destinations worldwide.",
+    "visaServicesDesc": "Streamlined visa services for a smooth travel experience..",
     "visaPlusPackage": "Visa + Air Ticket + Hotel + Transport + Events",
     "meetAssistTitle": "Meet & Assist",
     "meetAssistDesc": "VIP airport meet and greet services for a seamless travel experience.",
-    "hotelsTitle": "Hotels",
-    "hotelsDesc": "Premium hotel reservations from luxury resorts to business accommodations.",
+    "hotelsTitle": "Hotels Booking",
+    "hotelsDesc": "Handpicked accommodations worldwide with exceptional service.",
     "toursTitle": "Tours",
     "toursDesc": "Curated tour packages to exotic destinations around the world.",
-    "inboundTourTitle": "Inbound Tour",
-    "inboundTourDesc": "Custom inbound tourism packages for visitors to Qatar and the region.",
+    "HolydayTourTitle": "Holyday /Group Tour",
+    "inboundTourDesc": "Captivating itineraries and unforgettable experiences with fellow travelers..",
     "drivingPermitTitle": "Driving Permit",
-    "drivingPermitDesc": "International driving permit services for hassle-free travel abroad."
+    "drivingPermitDesc": "International driving permit services for hassle-free travel abroad.",
+    "umrahTitle": "Umrah Services",
+    "umrahDesc": "Complete Umrah packages and assistance for spiritual journeys to Makkah and Madinah."
   },
   "packages": {
     "title": "Exclusive Travel Packages",
@@ -203,115 +218,5 @@
         "visa": "Visa service"
       }
     }
-  },
-  "bps": {
-    "navLabel": "BPS - Overseas Jobs",
-    "tagline": "Building People, Shaping Futures",
-    "heroTitle": "Work Opportunities in Luxembourg (Europe)",
-    "heroDesc": "Build your career in one of Europe's richest and most stable economies with legal work permits.",
-    "sectorsTitle": "Available Sectors",
-    "sectors": {
-      "warehouse": "Warehouse & Logistics",
-      "construction": "Construction",
-      "hospitality": "Hospitality",
-      "cleaning": "Cleaning & Facility Services",
-      "supermarkets": "Supermarkets"
-    },
-    "advantagesTitle": "Key Advantages",
-    "advantages": {
-      "highSalary": "High salary country in Europe",
-      "fastGrowing": "Fast-growing job market",
-      "multinational": "Multinational work environment",
-      "workerProtection": "Strong worker protection laws"
-    },
-    "salaryTitle": "Salary Structure",
-    "salaryLevels": {
-      "entry": "Entry Level",
-      "semiSkilled": "Semi-Skilled",
-      "skilled": "Skilled"
-    },
-    "salaryRanges": {
-      "entry": "€1500 - €2200",
-      "semiSkilled": "€2200 - €3000",
-      "skilled": "€3000 - €4000+"
-    },
-    "benefitsTitle": "Benefits & Support",
-    "benefits": {
-      "accommodation": "Accommodation Support",
-      "transport": "Transportation Assistance",
-      "healthInsurance": "Health Insurance",
-      "paidLeave": "Paid Leave & Overtime"
-    },
-    "processingTitle": "Processing Time",
-    "processingTime": "4-5 Months",
-    "costTitle": "Total Service Cost",
-    "cost": "10,000 QAR",
-    "paymentTitle": "Payment Plan",
-    "paymentPlan": "4 Installments",
-    "ctaText": "Contact BPS for registration and more details.",
-    "ctaButton": "Register Now",
-    "features": {
-      "title": "Why Choose BPS",
-      "subtitle": "We provide end-to-end support for your overseas career journey"
-    }
-  },
-  "latvia": {
-    "tagline": "BPS - Your Partner in Progress",
-    "heroTitle": "LATVIA WORK OPPORTUNITIES",
-    "heroDesc": "Explore genuine job opportunities in Latvia (Europe) under official work permit programs.",
-    "sectorsTitle": "AVAILABLE SECTORS",
-    "sectors": {
-      "warehouse": "Warehouse Department",
-      "logistics": "Logistics",
-      "construction": "Construction"
-    },
-    "highlightsTitle": "KEY HIGHLIGHTS",
-    "highlights": {
-      "legal": "100% Legal Work Permit Process",
-      "processing": "Fast Processing (4-5 Months)",
-      "demand": "High Demand Jobs",
-      "secure": "Secure European Career Opportunity"
-    },
-    "salaryTitle": "SALARY STRUCTURE (in Euro)",
-    "salaryLevels": {
-      "underMatric": "Under Matric",
-      "intermediate": "Intermediate",
-      "bachelor": "Bachelor/Master"
-    },
-    "salaryRanges": {
-      "underMatric": "€1200-€2200",
-      "intermediate": "€2200 - €3000",
-      "bachelor": "€3000-€3500"
-    },
-    "benefitsTitle": "COMPANY BENEFITS (As per Latvia Labour Law)",
-    "benefits": {
-      "accommodation": "Accommodation provided",
-      "transport": "Transportation provided",
-      "medical": "Medical insurance (one time coverage)",
-      "meal": "Meal allowance",
-      "ticket": "Annual return ticket",
-      "contract": "Legal employment contract",
-      "safe": "Safe & secure working environment"
-    },
-    "processingTitle": "PROCESSING TIME",
-    "processingTime": "Total processing time: 120 Days (4 Months)",
-    "processingIncludes": "Includes: Offer Letter, Work Permit, Embassy Appointment, Visa Filing",
-    "costTitle": "TOTAL SERVICE COST",
-    "cost": "Total Cost: 10.000 QAR",
-    "paymentTitle": "PAYMENT PLAN (4 Installments in QAR)",
-    "installments": {
-      "first": "Upon signing agreement",
-      "second": "After Offer Letter",
-      "third": "After Work Permit",
-      "fourth": "After Visa approval"
-    },
-    "notesTitle": "IMPORTANT NOTES",
-    "notes": {
-      "professional": "Process handled professionally & legally",
-      "documents": "Genuine documents required",
-      "approval": "Final visa approval depends on immigration authorities"
-    },
-    "ctaTitle": "Start Your European Career with Latvia Today!",
-    "ctaButton": "Contact Us"
   }
 }

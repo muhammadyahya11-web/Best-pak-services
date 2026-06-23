@@ -11,9 +11,9 @@ export default function CTA() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="relative overflow-hidden py-32 text-white">
+    <section ref={ref} className="relative overflow-hidden py-20 sm:py-24 md:py-28 lg:py-32 text-white">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#080b16] via-[#0c0f1a] to-[#080b16]" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#080b16] via-[#0c1220] to-[#080b16]" />
 
       {/* Animated Orbs */}
       <motion.div
@@ -42,16 +42,17 @@ export default function CTA() {
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[var(--accent)]/30 to-transparent" />
       <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[var(--accent)]/30 to-transparent" />
 
-      <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
         {/* Badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card mb-10"
+          className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full glass-card mb-8 sm:mb-10"
         >
-          <Sparkles size={14} className="text-[var(--accent)]" />
-          <span className="text-xs font-bold text-[var(--accent)] tracking-[0.2em] uppercase">Start Your Journey</span>
+          <Sparkles size={12} className="sm:hidden text-[var(--accent)]" />
+          <Sparkles size={14} className="hidden sm:block text-[var(--accent)]" />
+          <span className="text-[10px] sm:text-xs font-bold text-[var(--accent)] tracking-[0.15em] sm:tracking-[0.2em] uppercase">Start Your Journey</span>
         </motion.div>
 
         {/* Heading */}
@@ -59,7 +60,7 @@ export default function CTA() {
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: 0.1 }}
-          className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] mb-8"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] mb-6 sm:mb-8 px-2"
           style={{ fontFamily: "'Outfit', sans-serif" }}
         >
           {t("home.ctaTitle")}
@@ -70,7 +71,7 @@ export default function CTA() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.2, duration: 0.7 }}
-          className="text-[var(--text-secondary)] text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed"
+          className="text-[var(--text-secondary)] text-sm sm:text-base md:text-lg max-w-2xl mx-auto mb-8 sm:mb-10 lg:mb-12 leading-relaxed px-4"
         >
           {t("home.ctaDesc")}
         </motion.p>
@@ -80,22 +81,23 @@ export default function CTA() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.4, duration: 0.5 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
+          className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 px-4"
         >
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => navigate("/contact")}
-            className="btn-premium px-10 py-4 rounded-full text-base font-bold shadow-xl flex items-center gap-3"
+            className="btn-premium px-8 sm:px-10 py-3 sm:py-4 rounded-full text-sm sm:text-base font-bold shadow-xl flex items-center gap-2 sm:gap-3 w-full sm:w-auto justify-center"
           >
             {t("home.ctaButton")}
-            <ArrowRight size={18} />
+            <ArrowRight size={16} className="sm:hidden" />
+            <ArrowRight size={18} className="hidden sm:block" />
           </motion.button>
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => navigate("/services")}
-            className="btn-outline px-10 py-4 rounded-full text-base font-semibold"
+            className="btn-outline px-8 sm:px-10 py-3 sm:py-4 rounded-full text-sm sm:text-base font-semibold w-full sm:w-auto"
           >
             View All Services
           </motion.button>
