@@ -72,8 +72,7 @@
   
       "line2": "About"
     },
-    "description": "corporated in 2020 under the leadership of Ms. Aasia Khan Malezai, Best Pak Services has evolved over the years leading the travel industry due to its best ethical practices and unrivaled knowledge and is now recognized as a premium and luxury travel service company. Their expert team crafts tailor-made itineraries, meticulously curating every aspect of the journey to exceed expectations. With the commitment to deliver excellence, it has come a long way by earning best travel agent award initially in 2025, followed every year till date. With such diligence and integrity, it has gained worldwide exposure offering best tours and packages.",
-    "button": "Our Services",
+    "description": "Incorporated in 2020 under the leadership of Ms. Aasia Khan Malezai, Best Pak Services has evolved over the years leading the travel industry due to its best ethical practices and unrivaled knowledge and is now recognized as a premium and luxury travel services company. Their expert team crafts tailor-made itineraries, meticulously curating every aspect of the journey to the exceed expectations. With the commitment to deliver excellence, it has come a long way by earning best travel agent award initially in 2025, followed every year till date. With such diligence and integrity, it has gained worldwide exposure offering best tours and packages",
     "stats": {
       "0": "Years of Excellence",
       "1": "Happy Clients",
@@ -81,7 +80,7 @@
     },
     "features": {
       "0": {
-        "title": "Our Mission",
+        "title": "Mission",
         "desc": "Our mission is to enrich lives through transformative travel experiences. We strive to exceed customer expectations by providing personalised and innovative travel solutions based on our years of rich experience in travel industry."
       },
       "1": {
@@ -99,7 +98,8 @@
     "ceo": {
       "title": "Message from Our CEO",
       "message": "My purpose since the start was to build a company based on shared values and ethical practices. We focused on 'what we do the best' and achieved several milestones over the years. Our persistence to work with impact and thus together with our shared values, we are able to reach where we stand today as a successful and one of the top performing travel service providing company in the world. We are extremely grateful to our employees, clients, and supporters in our business area for their constant trust in Best Pak Services.",
-      "name": "Aasia khan Malezai, CEO - Best Pak Services W.L.L"
+      "name": "Aasia khan Malezai",
+      "company": "CEO - Best Pak Services W.L.L"
     }
   },
   "services": {
@@ -202,7 +202,7 @@
     "phone": "Phone",
     "email": "Email",
     "address": "Address",
-    "addressValue": "Alfardan Centre, Doha, Qatar",
+    "addressValue": "Office No 5, Mansura, Doha, Qatar",
     "form": {
       "name": "Name",
       "email": "Email",

@@ -140,7 +140,7 @@ function Contact() {
             </motion.a>
 
             <motion.a
-              href="https://maps.google.com/?q=Alfardan%20Centre%20Doha"
+              href="https://maps.google.com/?q=Office+No+5+Mansura+Doha+Qatar"
               whileHover={{ x: isRTL ? -5 : 5 }}
               className="flex items-start gap-3 sm:gap-4 text-[var(--text-secondary)] hover:text-[var(--accent)] transition-all duration-300"
             >

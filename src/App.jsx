@@ -5,7 +5,6 @@ import { useEffect } from "react";
 import Navbar from "./Component/Navbar";
 import WhatsAppButton from "./Component/WhatsAppButton";
 import Popup from "./Component/Popup";
-import CustomCursor from "./Component/CustomCursor";
 import Home from "./Pages/Home";
 import About from "./Pages/About";
 import Services from "./Pages/Services";
@@ -25,7 +24,6 @@ export default function App() {
   return (
     <ThemeProvider>
       <LanguageProvider>
-        <CustomCursor />
         <Navbar />
         <Popup />
         <ScrollToTop />

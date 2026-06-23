@@ -26,7 +26,7 @@ function About() {
           className="text-center mb-12 sm:mb-14 md:mb-16"
         >
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--text-primary)] mt-8 sm:mt-10 mb-5 sm:mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--text-primary)] mt-8 sm:mt-20 mb-5 sm:mb-6">
             <span className="text-[var(--accent)]">{t("about.title.line2") || "About"}</span>
           </h2>
           <p className="text-[var(--text-secondary)] text-sm sm:text-base lg:text-lg leading-relaxed max-w-4xl mx-auto">
@@ -53,10 +53,13 @@ function About() {
                 {t("about.ceo.title") || "Message from Our CEO"}
               </h3>
               <p className="text-[var(--text-secondary)] leading-relaxed text-sm sm:text-base italic">
-                {t("about.ceo.message") || "At Asia Khan Travels, we believe that travel is not just about reaching a destination, but about the journey of transformation. Since 1995, we have been committed to crafting experiences that go beyond expectations, building trust through every interaction, and setting new standards in luxury travel. Our success is measured by the smiles of our clients and the memories we create together."}
+                {t("about.ceo.message") || "AIncorporated in 2020 under the leadership of Ms. Aasia Khan Malezai, Best Pak Services has evolved over the years leading the travel industry due to its best ethical practices and unrivaled knowledge and is now recognized as a premium and luxury travel services company. Their expert team crafts tailor-made itineraries, meticulously curating every aspect of the journey to the exceed expectations. With the commitment to deliver excellence, it has come a long way by earning best travel agent award initially in 2025, followed every year till date. With such diligence and integrity, it has gained worldwide exposure offering best tours and packages."}
               </p>
-              <p className="text-[var(--accent)] font-semibold mt-3 sm:mt-4 text-sm sm:text-base">
-                — {t("about.ceo.name") || "Asia Khan, CEO"}
+              <p className="text-[var(--accent)] font-semibold mt-3 sm:mt-4 text-sm sm:text-base whitespace-nowrap">
+                — {t("about.ceo.name") || "Aasia khan Malezai, CEO"}
+              </p>
+              <p className="text-[var(--text-muted)] text-xs sm:text-sm mt-1">
+                {t("about.ceo.company") || "Best Pak Services W.L.L"}
               </p>
             </div>
           </div>
@@ -90,7 +93,7 @@ function About() {
           >
             <div className="border-l-2 sm:border-l-4 border-[var(--accent)] pl-4 sm:pl-5 lg:pl-6">
               <h3 className="text-base sm:text-lg lg:text-xl font-bold text-[var(--text-primary)] mb-2 sm:mb-3">
-                {t("about.features.0.title") || "Our Mission"}
+                {t("about.features.0.title") || "Mission"}
               </h3>
               <p className="text-[var(--text-secondary)] leading-relaxed text-sm sm:text-base">
                 {t("about.features.0.desc") || "Our mission is to enrich lives through transformative travel experiences. We strive to exceed customer expectations by providing personalised and innovative travel solutions based on our years of rich experience in travel industry."}

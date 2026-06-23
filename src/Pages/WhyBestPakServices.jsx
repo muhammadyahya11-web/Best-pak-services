@@ -6,16 +6,13 @@ import { useLanguage } from "../context/LanguageContext";
 const achievementsData = [
   { icon: Award, text: "Top Selling Agent of almost all the airline companies operational in the region" },
   { icon: Users, text: "Executive Member of 'POEPA' (Pakistan Overseas Employment Promoters Association)" },
-  { icon: Plane, text: "PSA (Passenger Sale Agent) of PIA" },
-  { icon: Medal, text: "Executive Member of 'TAAP' (Travel Agents Association of Pakistan)" },
-  { icon: Star, text: "PAA (Preferred Agent Agreement) of Emirates Holiday (only one in Punjab)" },
-  { icon: Building, text: "The only corporate member of Chambers of Commerce from travel industry" },
-  { icon: Hotel, text: "One of the 3 distributors of 'Hotel Beds' in Pakistan" },
   { icon: TrendingUp, text: "Issuance of 1 M tickets since inception (only agent in the region till date)" },
   { icon: Plane, text: "Consolidating Agent of the following airlines; Emirates, PIA, Gulf, Qatar, Fly Dubai & Saudi" },
+  { icon: Building, text: "The only corporate member of Chambers of Commerce from travel industry" },
+  { icon: Hotel, text: "One of the 3 distributors of 'Hotel Beds' in Pakistan" },
   { icon: Globe, text: "Pioneer in promoting tourism & leisure travel in the region" },
+  { icon: Award, text: "Award winning company of 2025" },
   { icon: TrendingUp, text: "Largest b2b hotel networks in the world" },
-  { icon: Award, text: "Award winning agency since 2006" },
   { icon: ShieldCheck, text: "Professional Accreditations of IATA (International Air Transportation Authority) since 1990 & TAAP (Travel Agents Association of Pakistan)" },
 ];
 

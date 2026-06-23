@@ -23,8 +23,6 @@ import shengen from "../assets/shengen.jpg";
 import flightImg from "../assets/flight.jpg";
 import hotelImg from "../assets/hotel.jpg";
 import visaImg from "../assets/visa services.jpg";
-import tourImg from "../assets/tour.jpg";
-
 import { useTranslation } from "react-i18next";
 import { useLanguage } from "../context/LanguageContext";
 
@@ -56,7 +54,6 @@ const servicesData = [
   { key: "flights", image: flightImg, icon: "✈️" },
   { key: "visaServices", image: visaImg, icon: "🎫" },
   { key: "hotels", image: hotelImg, icon: "🏛️" },
-  { key: "tours", image: tourImg, icon: "🧭" },
   { key: "umrah", image: saudiImg, icon: "🕋" },
 ];
 

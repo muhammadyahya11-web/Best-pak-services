@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Menu, Globe, Phone, Mail } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useLanguage } from "../context/LanguageContext.jsx";
@@ -11,10 +11,6 @@ export default function Navbar() {
 
   const { t } = useTranslation();
   const { toggleLanguage, isRTL } = useLanguage();
-
-  const { scrollY } = useScroll();
-  const navY = useTransform(scrollY, [0, 120], [0, -8]);
-  const navScale = useTransform(scrollY, [0, 120], [1, 0.96]);
 
   const links = [
     { name: t("nav.home"), path: "/" },
@@ -31,7 +27,9 @@ export default function Navbar() {
         <div className="flex flex-row justify-between items-center h-full px-4 sm:px-6 lg:px-8 gap-2">
           <div className="flex items-center gap-2 sm:gap-4">
             <img src={qatarLogo} className="h-6 sm:h-7 opacity-90" />
-            <span className="hidden sm:inline text-sm sm:text-base">Commercial Registration: 238052</span>
+            <a href="/Commercial Registration.pdf" target="_blank" rel="noopener noreferrer" className="hidden sm:inline text-sm sm:text-base hover:text-[var(--accent)] transition cursor-pointer">
+              Commercial Registration: 238052
+            </a>
           </div>
 
           <div className="flex items-center gap-3 sm:gap-5 text-sm sm:text-base">
@@ -48,16 +46,13 @@ export default function Navbar() {
       </div>
 
       {/* 💎 NAVBAR */}
-      <motion.nav
-        style={{ y: navY, scale: navScale }}
+      <nav
         className="fixed top-20 left-0 w-full z-[999] bg-[var(--bg-secondary)]/90 backdrop-blur-2xl border-b border-[var(--border)]"
       >
-        <div className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
+        <div className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 py-2 sm:py-3 lg:py-4">
           {/* LOGO */}
           <NavLink to="/">
-            <div className="text-base sm:text-lg lg:text-xl tracking-[0.15em] sm:tracking-[0.2em] lg:tracking-[0.35em] font-light text-white">
-              BEST <span className="text-[var(--accent)] font-medium">PAK</span> SERVICES
-            </div>
+            <img src="/logo.png" alt="Best Pak Services" className="h-10 sm:h-12 md:h-14 w-auto object-contain drop-shadow-[0_0_10px_rgba(96,165,250,0.2)]" />
           </NavLink>
 
           {/* LINKS */}
@@ -98,7 +93,7 @@ export default function Navbar() {
             </button>
           </div>
         </div>
-      </motion.nav>
+      </nav>
 
       {/* 📱 MOBILE MENU */}
       <AnimatePresence>
