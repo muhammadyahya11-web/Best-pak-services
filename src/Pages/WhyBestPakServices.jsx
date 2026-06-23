@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Award, Users, Plane, Building, Hotel, Medal, TrendingUp, Star } from "lucide-react";
+import { Award, Users, Plane, Building, Hotel, Medal, TrendingUp, Star, ShieldCheck, Globe } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useLanguage } from "../context/LanguageContext";
 

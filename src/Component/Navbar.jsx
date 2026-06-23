@@ -43,7 +43,7 @@ export default function Navbar() {
             <a href="mailto:info@bestpakservices.com" className="flex items-center gap-1.5 hover:text-[var(--accent)] transition">
               <Mail size={12} className="sm:hidden" />
               <Mail size={14} className="hidden sm:block" />
-              <span className="hidden xs:inline">info@bestpakservices.com</span>
+               <span className="inline">info@bestpakservices.com</span>
             </a>
           </div>
         </div>
@@ -52,7 +52,7 @@ export default function Navbar() {
       {/* 💎 NAVBAR */}
       <motion.nav
         style={{ y: navY, scale: navScale }}
-        className="fixed top-14 sm:top-16 lg:top-[3.5rem] left-0 w-screen z-[999] bg-[var(--bg-secondary)]/90 backdrop-blur-2xl border-b border-[var(--border)]"
+        className="fixed top-14 sm:top-16 lg:top-[3.5rem] left-0 w-full z-[999] bg-[var(--bg-secondary)]/90 backdrop-blur-2xl border-b border-[var(--border)]"
       >
         <div className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
           {/* LOGO */}

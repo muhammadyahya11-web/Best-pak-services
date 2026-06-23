@@ -32,14 +32,7 @@ export default function Hero() {
       <motion.div style={{ y, opacity, scale }} className="relative z-10 flex h-full items-center justify-center px-4 sm:px-6">
         <div className="max-w-5xl text-center">
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="mb-4 sm:mb-5 text-[var(--accent)] tracking-[0.3em] uppercase text-xs sm:text-sm font-bold"
-          >
-            ✈️ DELIVERING EXCELLENCE SINCE 1995
-          </motion.p>
+       
 
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
