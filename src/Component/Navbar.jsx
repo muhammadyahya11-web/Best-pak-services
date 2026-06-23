@@ -27,23 +27,21 @@ export default function Navbar() {
   return (
     <>
       {/* ✨ TOP BAR - Visible on all devices */}
-      <div className="fixed top-0 left-0 w-full z-[1000] bg-[var(--bg-secondary)]/95 backdrop-blur-xl border-b border-[var(--border)] text-[var(--text-secondary)] text-xs sm:text-sm">
-        <div className="flex flex-col sm:flex-row justify-between items-center h-auto sm:h-14 lg:h-16 px-4 sm:px-6 lg:px-8 py-2 sm:py-0 gap-2 sm:gap-0">
-          <div className="flex items-center gap-3 sm:gap-6">
-            <img src={qatarLogo} className="h-8 sm:h-10 opacity-90" />
-            <span className="text-[10px] sm:text-xs lg:text-sm">Commercial Registration: 238052</span>
+      <div className="fixed top-0 left-0 w-full z-[1000] bg-[var(--bg-secondary)]/95 backdrop-blur-xl border-b border-[var(--border)] text-[var(--text-secondary)] h-20">
+        <div className="flex flex-row justify-between items-center h-full px-4 sm:px-6 lg:px-8 gap-2">
+          <div className="flex items-center gap-2 sm:gap-4">
+            <img src={qatarLogo} className="h-6 sm:h-7 opacity-90" />
+            <span className="hidden sm:inline text-sm sm:text-base">Commercial Registration: 238052</span>
           </div>
 
-          <div className="flex items-center gap-3 sm:gap-6 text-[10px] sm:text-xs lg:text-sm">
-            <a href="tel:+9745464665" className="flex items-center gap-1.5 hover:text-[var(--accent)] transition">
-              <Phone size={12} className="sm:hidden" />
-              <Phone size={14} className="hidden sm:block" />
+          <div className="flex items-center gap-3 sm:gap-5 text-sm sm:text-base">
+            <a href="tel:+9745464665" className="flex items-center gap-1 hover:text-[var(--accent)] transition">
+              <Phone size={14} />
               <span>+974 5464 665</span>
             </a>
-            <a href="mailto:info@bestpakservices.com" className="flex items-center gap-1.5 hover:text-[var(--accent)] transition">
-              <Mail size={12} className="sm:hidden" />
-              <Mail size={14} className="hidden sm:block" />
-               <span className="inline">info@bestpakservices.com</span>
+            <a href="mailto:info@bestpakservices.com" className="flex items-center gap-1 hover:text-[var(--accent)] transition">
+              <Mail size={14} />
+              <span className="hidden xs:inline sm:inline">info@bestpakservices.com</span>
             </a>
           </div>
         </div>
@@ -52,7 +50,7 @@ export default function Navbar() {
       {/* 💎 NAVBAR */}
       <motion.nav
         style={{ y: navY, scale: navScale }}
-        className="fixed top-14 sm:top-16 lg:top-[3.5rem] left-0 w-full z-[999] bg-[var(--bg-secondary)]/90 backdrop-blur-2xl border-b border-[var(--border)]"
+        className="fixed top-20 left-0 w-full z-[999] bg-[var(--bg-secondary)]/90 backdrop-blur-2xl border-b border-[var(--border)]"
       >
         <div className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
           {/* LOGO */}
