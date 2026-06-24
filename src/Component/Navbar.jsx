@@ -25,21 +25,28 @@ export default function Navbar() {
       {/* ✨ TOP BAR - Visible on all devices */}
       <div className="fixed top-0 left-0 w-full z-[1000] bg-[var(--bg-secondary)]/95 backdrop-blur-xl border-b border-[var(--border)] text-[var(--text-secondary)] h-20">
         <div className="flex flex-row justify-between items-center h-full px-4 sm:px-6 lg:px-8 gap-2">
-          <div className="flex items-center gap-2 sm:gap-4">
-            <img src={qatarLogo} className="h-6 sm:h-7 opacity-90" />
-            <a href="/Commercial Registration.pdf" target="_blank" rel="noopener noreferrer" className="hidden sm:inline text-sm sm:text-base hover:text-[var(--accent)] transition cursor-pointer">
-              Commercial Registration: 238052
-            </a>
-          </div>
+           <div className="flex items-center gap-2 sm:gap-4">
+             <img src={qatarLogo} alt="Qatar Logo" className="h-6 sm:h-7 opacity-90" />
+              <a href="/Commercial%20Registration.pdf" target="_blank" rel="noopener noreferrer" className="hidden sm:inline text-sm sm:text-base hover:text-[var(--accent)] transition cursor-pointer">
+                Commercial Registration: 238052
+              </a>
+           </div>
 
           <div className="flex items-center gap-3 sm:gap-5 text-sm sm:text-base">
-            <a href="tel:+9745464665" className="flex items-center gap-1 hover:text-[var(--accent)] transition">
+            <a href="tel:+97466197607" className="flex items-center gap-1 hover:text-[var(--accent)] transition">
               <Phone size={14} />
-              <span>+974 5464 665</span>
+              <span>+974 6619 7607</span>
             </a>
             <a href="mailto:info@bestpakservices.com" className="flex items-center gap-1 hover:text-[var(--accent)] transition">
               <Mail size={14} />
-              <span className="hidden xs:inline sm:inline">info@bestpakservices.com</span>
+              <span className="hidden xs:inline sm:inline">info@bestpakservice.com</span>
+            </a>
+            <a href="https://www.instagram.com/bestpakservice?igsh=MWQzbHV5bTJ0Y3ZkbQ==" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-8 h-8 rounded-full hover:bg-[var(--accent)]/10 transition">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-[18px] h-[18px] text-[var(--text-secondary)]">
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+              </svg>
             </a>
           </div>
         </div>
@@ -85,12 +92,12 @@ export default function Navbar() {
             </button>
 
             {/* MOBILE MENU */}
-            <button 
-              onClick={() => setOpen(true)} 
-              className="lg:hidden px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-full border border-[var(--border)] hover:border-[var(--accent)] transition"
-            >
-              <Menu className="text-white w-4 h-4 sm:w-5 sm:h-5" />
-            </button>
+             <button 
+               onClick={() => setOpen(true)} 
+               className="lg:hidden px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-full border border-[var(--border)] hover:border-[var(--accent)] transition"
+             >
+               <Menu className="text-[var(--text-primary)] w-4 h-4 sm:w-5 sm:h-5" />
+             </button>
           </div>
         </div>
       </nav>

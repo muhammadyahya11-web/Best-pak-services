@@ -56,7 +56,7 @@ function Contact() {
 
   return (
     <main className="bg-[var(--bg-primary)] transition-colors duration-300" dir={isRTL ? "rtl" : "ltr"}>
-      <section className="relative bg-[var(--bg-tertiary)] py-20 sm:py-24 md:py-28 text-white overflow-hidden">
+      <section className="relative bg-[var(--bg-tertiary)] mt-20 py-20 sm:py-24 md:py-28 text-white overflow-hidden">
         <div className="absolute top-0 right-0 w-48 h-48 sm:w-64 sm:h-64 md:w-96 md:h-96 bg-[var(--accent)]/10 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-40 h-40 sm:w-56 sm:h-56 md:w-80 md:h-80 bg-teal-500/10 rounded-full blur-3xl" />
 
@@ -74,7 +74,7 @@ function Contact() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="mt-3 sm:mt-4 font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight"
+            className="mt-3 sm:mt-10 font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight"
           >
             {t("contact.heroTitle")}
           </motion.h1>
@@ -111,31 +111,31 @@ function Contact() {
               className="flex items-center gap-3 sm:gap-4 text-[var(--text-secondary)] hover:text-[var(--accent)] transition-all duration-300"
             >
               <div className="w-10 h-10 sm:w-11 sm:h-11 lg:w-12 lg:h-12 rounded-full bg-[var(--bg-tertiary)] flex items-center justify-center shrink-0">
-                <Phone className="text-[var(--accent)]" size={18} className="sm:hidden" />
+                <Phone size={18} className="sm:hidden text-[var(--accent)]" />
                 <Phone size={20} className="hidden sm:block text-[var(--accent)]" />
               </div>
               <div>
                 <p className="text-[10px] sm:text-xs text-[var(--text-muted)] uppercase tracking-wider">
                   {t("contact.phone")}
                 </p>
-                <p className="font-semibold text-sm sm:text-base">+974 4476 9222</p>
+                <p className="font-semibold text-sm sm:text-base">+974 6619 7607</p>
               </div>
             </motion.a>
 
             <motion.a
-              href="mailto:info@flymi.com"
+              href="mailto:info@bestpakservice.com"
               whileHover={{ x: isRTL ? -5 : 5 }}
               className="flex items-center gap-3 sm:gap-4 text-[var(--text-secondary)] hover:text-[var(--accent)] transition-all duration-300"
             >
               <div className="w-10 h-10 sm:w-11 sm:h-11 lg:w-12 lg:h-12 rounded-full bg-[var(--bg-tertiary)] flex items-center justify-center shrink-0">
-                <Mail className="text-[var(--accent)]" size={18} className="sm:hidden" />
+                <Mail size={18} className="sm:hidden text-[var(--accent)]" />
                 <Mail size={20} className="hidden sm:block text-[var(--accent)]" />
               </div>
               <div>
                 <p className="text-[10px] sm:text-xs text-[var(--text-muted)] uppercase tracking-wider">
                   {t("contact.email")}
                 </p>
-                <p className="font-semibold text-sm sm:text-base">info@flymi.com</p>
+                <p className="font-semibold text-sm sm:text-base">info@bestpakservice.com</p>
               </div>
             </motion.a>
 
@@ -145,7 +145,7 @@ function Contact() {
               className="flex items-start gap-3 sm:gap-4 text-[var(--text-secondary)] hover:text-[var(--accent)] transition-all duration-300"
             >
               <div className="w-10 h-10 sm:w-11 sm:h-11 lg:w-12 lg:h-12 rounded-full bg-[var(--bg-tertiary)] flex items-center justify-center shrink-0">
-                <MapPin className="text-[var(--accent)]" size={18} className="sm:hidden" />
+                <MapPin size={18} className="sm:hidden text-[var(--accent)]" />
                 <MapPin size={20} className="hidden sm:block text-[var(--accent)]" />
               </div>
               <div>
@@ -157,7 +157,7 @@ function Contact() {
             </motion.a>
 
             <motion.a
-              href="https://wa.me/97444769222"
+              href="https://wa.me/97466197607"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.03 }}

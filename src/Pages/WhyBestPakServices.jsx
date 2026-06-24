@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Award, Users, Plane, Building, Hotel, Medal, TrendingUp, Star, ShieldCheck, Globe } from "lucide-react";
+import { Award, Users, Plane, Building, TrendingUp, Globe, ShieldCheck } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useLanguage } from "../context/LanguageContext";
 
@@ -9,7 +9,7 @@ const achievementsData = [
   { icon: TrendingUp, text: "Issuance of 1 M tickets since inception (only agent in the region till date)" },
   { icon: Plane, text: "Consolidating Agent of the following airlines; Emirates, PIA, Gulf, Qatar, Fly Dubai & Saudi" },
   { icon: Building, text: "The only corporate member of Chambers of Commerce from travel industry" },
-  { icon: Hotel, text: "One of the 3 distributors of 'Hotel Beds' in Pakistan" },
+  
   { icon: Globe, text: "Pioneer in promoting tourism & leisure travel in the region" },
   { icon: Award, text: "Award winning company of 2025" },
   { icon: TrendingUp, text: "Largest b2b hotel networks in the world" },
@@ -39,7 +39,7 @@ export default function WhyBestPakServices() {
             transition={{ duration: 0.7 }}
             className="mb-6 sm:mb-8"
           >
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[var(--text-primary)] leading-[1.1] mb-4 sm:mb-6">
+            <h1 className="text-3xl mt-10 sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[var(--text-primary)] leading-[1.1] mb-4 sm:mb-6">
               {t("whyBestPak.title")}
             </h1>
             <p className="text-[var(--text-secondary)] text-sm sm:text-base md:text-lg max-w-3xl mx-auto leading-relaxed">

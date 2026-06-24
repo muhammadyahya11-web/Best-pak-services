@@ -1,16 +1,193 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import about from "../assets/about-img.webp";
+import about2 from "../assets/about2.jpg";
+import about1 from "./../assets/about-img.webp"
 import ceoImg from "../assets/Untitled.png";
 import { useTranslation } from "react-i18next";
 import { useLanguage } from "../context/LanguageContext";
-import { useNavigate } from "react-router-dom";
+
+// ============================================================
+// Animation Presets
+// Centralized motion variants so every section animates
+// consistently while keeping JSX clean and readable.
+// ============================================================
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+};
+
+const fadeInUpDelayed = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+};
+
+const fadeInLeft = {
+  hidden: { opacity: 0, x: -40 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.8 } },
+};
+
+const fadeInRight = {
+  hidden: { opacity: 0, x: 40 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.8, delay: 0.2 } },
+};
+
+const viewOnce = { once: true, amount: 0.3 };
+
+// ============================================================
+// Sub-components
+// Each handles one semantic section of the About page.
+// This keeps the main component focused on composition.
+// ============================================================
+
+/** Page heading with title and introductory paragraph */
+function PageHeader({ t }) {
+  return (
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      variants={fadeInUp}
+      viewport={viewOnce}
+      className="text-center mb-12 sm:mb-14 md:mb-16"
+    >
+      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--text-primary)] mt-8 sm:mt-20 mb-5 sm:mb-6">
+        <span className="text-[var(--accent)]">{t("about.title.line2") || "About"}</span>
+      </h2>
+     {/* ----------------about des and img------------------------------- */}
+        <div className=" sm:grid grid-cols-2 mt-5 sm:gap-10  gap-5 flex flex-col-reverse">
+           <motion.img
+          src={about1}
+          alt="About Best Pak Services"
+          loading="lazy"
+          
+          className="relative rounded-2xl sm:rounded-3xl shadow-2xl w-full object-cover aspect-[4/3]"
+        />
+           <p className="text-[var(--text-secondary)] text-left  text-sm sm:text-base lg:text-lg leading-relaxed max-w-4xl mx-auto">
+        {t("about.description")}
+      </p>
+        </div>
+     {/* ------------------------------------------------- */}
+    </motion.div>
+  );
+}
+
+/** CEO card with portrait photo and leadership message */
+function CeoMessageCard({ t, ceoImg }) {
+  return (
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      variants={fadeInUpDelayed}
+      viewport={viewOnce}
+      className="bg-[var(--card-bg)] border border-[var(--border)] rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-8 mb-12 sm:mb-14 md:mb-16 lg:mb-20"
+    >
+      <div className="flex flex-col sm:flex-row-reverse items-center gap-5 sm:gap-6 lg:gap-8">
+        <div className="text-center sm:text-left flex-1">
+          <h3 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] mb-2 sm:mb-3">
+            {t("about.ceo.title")}
+          </h3>
+          <p className="text-[var(--text-secondary)] leading-relaxed text-sm sm:text-base italic">
+            {t("about.ceo.message")}
+          </p>
+          <p className="text-[var(--accent)] font-semibold mt-3 sm:mt-4 text-sm sm:text-base whitespace-nowrap">
+            — {t("about.ceo.name")}
+          </p>
+          <p className="text-[var(--text-muted)] text-xs sm:text-sm mt-1">
+            {t("about.ceo.company")}
+          </p>
+        </div>
+        <img
+          src={ceoImg}
+          alt="CEO"
+          loading="lazy"
+          className="w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 rounded-full object-cover border-2 sm:border-4 border-[var(--accent)]/20 flex-shrink-0"
+        />
+      </div>
+    </motion.div>
+  );
+}
+
+/** Single feature block with an accent left border */
+function FeatureItem({ t, index }) {
+  const title = t(`about.features.${index}.title`);
+  const desc = t(`about.features.${index}.desc`);
+
+  return (
+    <div className="border-l-2 sm:border-l-4 border-[var(--accent)] pl-4 sm:pl-5 lg:pl-6">
+      <h3 className="text-base sm:text-lg lg:text-xl font-bold text-[var(--text-primary)] mb-2 sm:mb-3">
+        {title}
+      </h3>
+      {index !== 2 && (
+        <p className="text-[var(--text-secondary)] leading-relaxed text-sm sm:text-base">
+          {desc}
+        </p>
+      )}
+      {index === 2 && (
+        <p className="text-[var(--text-secondary)] leading-relaxed text-sm sm:text-base">
+          <strong className="text-[var(--text-primary)]">{t("about.features.2.title1")}</strong>:{" "}
+          {t("about.features.2.desc1")}
+        </p>
+      )}
+      {index === 2 && (
+        <p className="text-[var(--text-secondary)] leading-relaxed mt-2 text-sm sm:text-base">
+          <strong className="text-[var(--text-primary)]">{t("about.features.2.title2")}</strong>:{" "}
+          {t("about.features.2.desc2")}
+        </p>
+      )}
+    </div>
+  );
+}
+
+/** Two-column section combining hero image with mission/vision/values */
+function AboutContent({ t, about2, imgY }) {
+  return (
+    <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-14 items-center mb-12 sm:mb-14 md:mb-16 lg:mb-20">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        variants={fadeInLeft}
+        viewport={viewOnce}
+        className="relative order-1"
+      >
+        <div className="absolute -top-4 -left-4 w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 bg-[var(--accent)]/10 rounded-full blur-2xl" />
+        <div className="absolute -bottom-4 -right-4 w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 bg-[var(--accent)]/5 rounded-full blur-3xl" />
+
+        <motion.img
+          src={about2}
+          alt="About Best Pak Services"
+          loading="lazy"
+          style={{ y: imgY }}
+          className="relative rounded-2xl sm:rounded-3xl shadow-2xl w-full object-cover aspect-[4/3]"
+        />
+      </motion.div>
+
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        variants={fadeInRight}
+        viewport={viewOnce}
+        className="space-y-5 sm:space-y-6 lg:space-y-7 order-2"
+      >
+        <FeatureItem t={t} index={0} />
+        <FeatureItem t={t} index={1} />
+        <FeatureItem t={t} index={2} />
+      </motion.div>
+    </div>
+  );
+}
+
+
+
+// ============================================================
+// Main About Page
+// ============================================================
 
 function About() {
   const { t } = useTranslation();
   const { scrollY } = useScroll();
-  const imgY = useTransform(scrollY, [600, 1200], [30, -30]);
   const { isRTL } = useLanguage();
-  const navigate = useNavigate();
+
+  // Vertical parallax offset tied to page scroll position
+  const imgY = useTransform(scrollY, [600, 1200], [30, -30]);
 
   return (
     <section
@@ -18,131 +195,10 @@ function About() {
       dir={isRTL ? "rtl" : "ltr"}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12 sm:mb-14 md:mb-16"
-        >
-
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--text-primary)] mt-8 sm:mt-20 mb-5 sm:mb-6">
-            <span className="text-[var(--accent)]">{t("about.title.line2") || "About"}</span>
-          </h2>
-          <p className="text-[var(--text-secondary)] text-sm sm:text-base lg:text-lg leading-relaxed max-w-4xl mx-auto">
-            {t("about.description") || "My purpose since the start was to build a company based on shared values and ethical practices. We focused on 'what we do the best' and achieved several milestones over the years. Our persistence to work with impact and thus together with our shared values, we are able to reach where we stand today as a successful and one of the top performing travel service providing company in the world. We are extremely grateful to our employees, clients, and supporters in our business area for their constant trust in Best Pak Services."}
-          </p>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.1 }}
-          className="bg-[var(--card-bg)] border border-[var(--border)] rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-8 mb-12 sm:mb-14 md:mb-16 lg:mb-20"
-        >
-          <div className="flex flex-col sm:flex-row items-center gap-5 sm:gap-6 lg:gap-8">
-            <img
-              src={ceoImg}
-              alt="CEO"
-              loading="lazy"
-              className="w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 rounded-full object-cover border-2 sm:border-4 border-[var(--accent)]/20 flex-shrink-0"
-            />
-            <div className="text-center sm:text-left">
-              <h3 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] mb-2 sm:mb-3">
-                {t("about.ceo.title") || "Message from Our CEO"}
-              </h3>
-              <p className="text-[var(--text-secondary)] leading-relaxed text-sm sm:text-base italic">
-                {t("about.ceo.message") || "AIncorporated in 2020 under the leadership of Ms. Aasia Khan Malezai, Best Pak Services has evolved over the years leading the travel industry due to its best ethical practices and unrivaled knowledge and is now recognized as a premium and luxury travel services company. Their expert team crafts tailor-made itineraries, meticulously curating every aspect of the journey to the exceed expectations. With the commitment to deliver excellence, it has come a long way by earning best travel agent award initially in 2025, followed every year till date. With such diligence and integrity, it has gained worldwide exposure offering best tours and packages."}
-              </p>
-              <p className="text-[var(--accent)] font-semibold mt-3 sm:mt-4 text-sm sm:text-base whitespace-nowrap">
-                — {t("about.ceo.name") || "Aasia khan Malezai, CEO"}
-              </p>
-              <p className="text-[var(--text-muted)] text-xs sm:text-sm mt-1">
-                {t("about.ceo.company") || "Best Pak Services W.L.L"}
-              </p>
-            </div>
-          </div>
-        </motion.div>
-
-        <div className="grid lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-14 items-center mb-12 sm:mb-14 md:mb-16 lg:mb-20">
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="relative"
-          >
-            <div className="absolute -top-6 -left-6 w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 bg-[var(--accent)]/10 rounded-full blur-2xl"></div>
-            <div className="absolute -bottom-6 -right-6 w-28 h-28 sm:w-32 sm:h-32 lg:w-40 lg:h-40 bg-[var(--accent)]/5 rounded-full blur-3xl"></div>
-            <motion.img
-              src={about}
-              alt="About Asia Khan Travels"
-              loading="lazy"
-              style={{ y: imgY }}
-              className="relative rounded-2xl sm:rounded-3xl shadow-2xl w-full object-cover aspect-[4/3]"
-            />
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="space-y-6 sm:space-y-7 lg:space-y-8"
-          >
-            <div className="border-l-2 sm:border-l-4 border-[var(--accent)] pl-4 sm:pl-5 lg:pl-6">
-              <h3 className="text-base sm:text-lg lg:text-xl font-bold text-[var(--text-primary)] mb-2 sm:mb-3">
-                {t("about.features.0.title") || "Mission"}
-              </h3>
-              <p className="text-[var(--text-secondary)] leading-relaxed text-sm sm:text-base">
-                {t("about.features.0.desc") || "Our mission is to enrich lives through transformative travel experiences. We strive to exceed customer expectations by providing personalised and innovative travel solutions based on our years of rich experience in travel industry."}
-              </p>
-            </div>
-
-            <div className="border-l-2 sm:border-l-4 border-[var(--accent)] pl-4 sm:pl-5 lg:pl-6">
-              <h3 className="text-base sm:text-lg lg:text-xl font-bold text-[var(--text-primary)] mb-2 sm:mb-3">
-                {t("about.features.1.title") || "Vision"}
-              </h3>
-              <p className="text-[var(--text-secondary)] leading-relaxed text-sm sm:text-base">
-                {t("about.features.1.desc") || "Our vision is to be the leading provider of extraordinary travel experiences. By fostering lasting partnerships, embracing innovation and staying ahead of industry trends, we aspire to shape the future of travel and be the first choice of travellers seeking unforgettable adventures around the globe."}
-              </p>
-            </div>
-
-            <div className="border-l-2 sm:border-l-4 border-[var(--accent)] pl-4 sm:pl-5 lg:pl-6">
-              <h3 className="text-base sm:text-lg lg:text-xl font-bold text-[var(--text-primary)] mb-2 sm:mb-3">
-                {t("about.features.2.title") || "Core Values"}
-              </h3>
-              <p className="text-[var(--text-secondary)] leading-relaxed text-sm sm:text-base">
-                <strong className="text-[var(--text-primary)]">{t("about.features.2.title1") || "Credibility"}:</strong> {t("about.features.2.desc1") || "We build trust with our customers by delivering on our promises, and providing reliable information and services to build a long term relationship."}
-              </p>
-              <p className="text-[var(--text-secondary)] leading-relaxed mt-2 text-sm sm:text-base">
-                <strong className="text-[var(--text-primary)]">{t("about.features.2.title2") || "Innovation"}:</strong> {t("about.features.2.desc2") || "We embrace innovation & stay up to date with the latest trends and technologies in the travel industry to continuously enhance our services and provide innovative travel solutions."}
-              </p>
-            </div>
-          </motion.div>
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 mt-10 sm:mt-12 md:mt-14 lg:mt-16"
-        >
-          <button
-            onClick={() => navigate("/services")}
-            className="px-6 sm:px-8 py-2.5 sm:py-3 bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white rounded-full font-semibold transition-all shadow-lg hover:shadow-xl text-sm sm:text-base"
-          >
-            {t("about.button") || "Our Services"}
-          </button>
-          <button
-            onClick={() => navigate("/contact")}
-            className="px-6 sm:px-8 py-2.5 sm:py-3 bg-transparent border border-[var(--border)] text-[var(--text-primary)] rounded-full font-semibold hover:bg-[var(--bg-secondary)] transition-all text-sm sm:text-base"
-          >
-            {t("nav.contact") || "Contact Us"}
-          </button>
-        </motion.div>
+        <PageHeader t={t} />
+        <CeoMessageCard t={t} ceoImg={ceoImg} />
+        <AboutContent t={t} about2={about2} imgY={imgY} />
+        
       </div>
     </section>
   );

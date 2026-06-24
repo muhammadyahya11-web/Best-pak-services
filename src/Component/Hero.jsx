@@ -38,7 +38,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight"
+            className="text-3xl sm:text-4xl md:text-5xl mt-25 lg:text-6xl xl:text-7xl font-bold text-white leading-tight"
           >
             Discover The World's{" "}
             <span className="text-[var(--accent)]">Most Beautiful</span> Places

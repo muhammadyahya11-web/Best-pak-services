@@ -123,7 +123,7 @@ function Services() {
         </div>
       </section>
 
-      {/* Services Grid */}
+      {/* Services Grid=================== */}
       <section className="relative -mt-16 sm:-mt-20 pb-24 sm:pb-28 z-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-7">
@@ -135,8 +135,8 @@ function Services() {
       </section>
 
       {/* Visa Countries Section */}
-      <section className="py-20 sm:py-28 bg-gradient-to-b from-[var(--bg-primary)] via-[var(--card-bg)] to-[var(--bg-tertiary)] overflow-hidden relative transition-colors duration-300">
-        <div className="absolute top-20 left-10 w-60 h-60 sm:w-72 sm:h-72 bg-[var(--accent)]/5 rounded-full blur-3xl" />
+      <section className="py-20 -mt-30 sm:py-28 bg-gradient-to-b from-[var(--bg-primary)] via-[var(--card-bg)] to-[var(--bg-tertiary)] overflow-hidden relative transition-colors duration-300">
+        <div className="absolute top-20 left-10 w-60 h-60 sm:w-72 sm:h-72  bg-[var(--accent)]/5 rounded-full blur-3xl" />
         <div className="absolute bottom-20 right-10 w-60 h-60 sm:w-96 sm:h-96 bg-[var(--accent)]/5 rounded-full blur-3xl" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 relative">
           <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="text-center mb-12 sm:mb-16 lg:mb-20">

@@ -3,13 +3,14 @@ import { ThemeProvider } from "./context/ThemeContext.jsx";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import Navbar from "./Component/Navbar";
-import WhatsAppButton from "./Component/WhatsAppButton";
+
 import Popup from "./Component/Popup";
 import Home from "./Pages/Home";
 import About from "./Pages/About";
 import Services from "./Pages/Services";
 import Contact from "./Pages/Contact";
 import WhyBestPakServices from "./Pages/WhyBestPakServices";
+
 
 
 function ScrollToTop() {
@@ -35,7 +36,6 @@ export default function App() {
           <Route path="/whybestpakservices" element={<WhyBestPakServices />} />
         </Routes>
 
-        <WhatsAppButton />
       </LanguageProvider>
     </ThemeProvider>
   );

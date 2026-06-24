@@ -86,26 +86,26 @@ export default function Footer() {
               className="hover:text-[var(--accent)] transition-colors duration-300 flex items-center gap-2 sm:gap-3 text-sm"
             >
               <span className="text-[var(--accent)] text-xs">●</span>
-              +974 4476 9222
+              +974 6619 7607
             </motion.a>
             <motion.a
-              href="mailto:info@bestpakservices.com"
+              href="mailto:info@bestpakservice.com"
               whileHover={{ x: 5 }}
               className="hover:text-[var(--accent)] transition-colors duration-300 flex items-center gap-2 sm:gap-3 text-sm"
             >
               <span className="text-[var(--accent)] text-xs">●</span>
-              info@bestpakservices.com
+              info@bestpakservice.com
             </motion.a>
             <p className="text-[var(--text-muted)] flex items-center gap-2 sm:gap-3 text-sm">
               <span className="text-[var(--accent)] text-xs">●</span>
-              Alfardan Centre, Doha, Qatar
+           Building no 12,Zone 24, street 830, floor 6, office no 5 mansura, Doha, Qatar
             </p>
           </div>
         </motion.div>
       </div>
 
       <div className="relative mt-10 sm:mt-12 lg:mt-16 border-t border-[var(--border)] pt-6 sm:pt-8 text-center text-[var(--text-muted)] text-xs sm:text-sm">
-        © {new Date().getFullYear()} BEST PAK SERVICES. All rights reserved.
+        © {new Date().getFullYear()} BEST PAK SERVICE. All rights reserved.
       </div>
     </footer>
   );
